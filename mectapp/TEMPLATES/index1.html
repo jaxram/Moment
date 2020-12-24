@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+	<head>
+		<title>Log In - MECT Workplace</title>
+		<link rel="stylesheet" href="static/css/index.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/css/font-awesome.min.css">
+	</head>
+	<body>
+		{% csrf_token %}
+		<div class="wrapper">
+			<div class="loading">
+				<img src="static/images/Thiagarajar_College_of_Engineering_logo.png">
+			</div>
+				<div class="main">
+
+					<center><img src="static/images/Cyclist's Chain.png"></center>
+					<center><h1 class="error">Email and Password did not match!</h1></center>
+					<center><input type="email" placeholder="E-Mail ID" class="email" /></center>
+					<center><input type="password" placeholder="Password" class="password" /></center>
+					<center><button class="login">Log In</button></center>
+					
+
+			</div>
+		</div>
+
+		<script src="static/js/jquery.js"></script>
+		<script src="static/js/jquery.ajax-cross-origin.min.js"></script>
+		<script src="static/js/index.js"></script>
+	</body>
+</html>

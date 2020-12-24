@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notification - MECT Workplace</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/notification_reply.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/notification_reply.css' %}">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="{% static '/images/favicon.ico' %}" type="image/x-icon">
+		<link rel="stylesheet" href="{% static '/css/all.css' %}">
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="wrapper">
+      <div class="main">
+        
+      </div>
+      <div class="navigation">
+        <center><button class="home"><i class="fa fa-home" aria-hidden="true"></i></button>
+        <button class="notifications"><i class="fa fa-bell" aria-hidden="true"></i></button>
+        <button class="search"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <button class="settings"><i class="fa fa-cog" aria-hidden="true"></i></button></center>
+      </div>
+    </div>
+    <script src="{% static '/js/jquery.js' %}"></script>
+    <script src="{% static '/js/notification_reply.js' %}"></script>
+  </body>
+</html>

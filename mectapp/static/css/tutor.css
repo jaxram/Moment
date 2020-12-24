@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    
+  }
+  .top-bar {
+    width: 100%;
+  }
+  
+  .back {
+    display: block;
+	background-color: transparent;
+	border: none;
+	color: black;
+	outline: 0;
+	font-weight: bold;
+  }
+  .Done{
+    
+	margin-bottom: 40px;
+	padding-left:300px;
+	background-color: transparent;
+	border: none;
+	color: black;
+	outline: 0;
+	font-weight: bold;
+  }
+  .button {
+    outline: 0;
+  }  
+
+  .member-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none;
+  }
+  .member-name {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    position: absolute;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-weight: bold;
+    color:black;
+  }
+  .members {
+    margin-left: 30px;
+    margin-bottom: 20px;
+  }
+  .head{
+      font-weight: 100;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }

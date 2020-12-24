@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/tutor.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/tutor.css' %}">
+    {% endif %}
+    
+</head>
+<body>
+    {% csrf_token %}
+    <button type="button" class="back">Go back</button>
+    <center><h1 class="head">Choose your respected Tutor</h1></center>
+   <div class="members"></div> 
+   
+    <button type="button" class="Done">Done</button>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/tutor.js"></script>
+</body>
+</html>

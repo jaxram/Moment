@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navigation {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid grey;
+  background-color: #fff;
+}
+
+.navigation button {
+  background-color: transparent;
+  margin-left: 26px;
+  font-size: 20px;
+  margin-right: 26px;
+  padding-top: 12.5px;
+  outline: 0;
+}
+
+.settings {
+  color: #ff914d;
+  border-top: 3px solid black;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.home {
+  border: none;
+}
+
+.search {
+  border: none;
+}
+
+.notifications {
+  border: none;
+}
+
+.main {
+  margin-top: 80px;
+  padding-left: 20px;
+  width: 90%;
+}
+
+.main button {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.profile-symbol {
+  color: #6e3562;
+}
+
+.group-symbol {
+  color: #ff914d;
+}
+
+.about-symbol {
+  color: #6d8343;
+}
+
+button {
+  outline: 0;
+}
+
+.account-symbol {
+  color: #a3c14a;
+}
+
+.logout-symbol {
+  color: #dd698b;
+}
+
+.main h1 {
+  border-bottom: 1px solid #727272;
+}
+
+@media only screen and (max-width: 400px) {
+  .navigation button {
+    background-color: transparent;
+    margin-left: 20px;
+    font-size: 20px;
+    margin-right: 20px;
+    padding-top: 12.5px;
+    outline: 0;
+  }
+}

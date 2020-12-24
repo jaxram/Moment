@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.comment-text {
+  max-width: 80%;
+}
+
+.comment-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline;
+}
+
+.comment-text {
+  font-size: 16px;
+  font-family: sans-serif;
+  display: inline-block;
+  position: absolute;
+  font-weight: normal;
+  padding-left: 20px;
+  line-height: 1.65;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.comment {
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+.comment1 {
+  margin-top: 100px;
+}
+
+.comment-post {
+  position: fixed;
+  background-color: white;
+  padding-left: 20px;
+  bottom: 0;
+  padding-bottom: 20px;
+  height: 50px;
+  width: 100%;
+  border-top: 1px solid black;
+}
+
+.comment-post-img {
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+input {
+  outline: 0;
+  border: none;
+  font-size: 16px;
+  position: absolute;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+input::placeholder {
+  font-size: 16px;
+}
+
+.comments-heading {
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.close {
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.send {
+  position: absolute;
+  right: 20px;
+  font-size: 16px;
+  bottom: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+button {
+  outline: 0;
+}

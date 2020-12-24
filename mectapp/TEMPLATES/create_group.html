@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Group - MECT Workplace</title>
+    <link rel="stylesheet" href="static/css/create_group.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/css/all.css">
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="wrapper">
+      <div class="top-bar">
+        <button class="heading">Create Group</button>
+        <button class="close"><i class="fa fa-times" aria-hidden="true"></i></button>
+      </div>
+      <div class="main">
+        <input type="file" id="file">
+        <button class="add-image"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+        <img src="" class="img">
+        <input type="text" class="add-name" placeholder="Add a group name" />
+        <h1></h1>
+        <center><button class="create">Create</button></center>
+      </div>
+    </div>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/create_group.js"></script>
+  </body>
+</html>

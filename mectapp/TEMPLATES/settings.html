@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Settings - MECT Workplace</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/settings.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/settings.css' %}">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="main">
+        <div class="user-profile">
+          <button class="profile-symbol"><i class="fa fa-user" aria-hidden="true"></i></button>
+          <button class="profile-text">Your Profile</button>
+        </div>
+        <h1></h1>
+        <div class="dark-mode">
+
+        </div>
+        <h1></h1>
+        <div class="about">
+        <button class="about-symbol"><i class="fa fa-address-card" aria-hidden="true"></i></button>
+        <button class="about-text">About</button>
+        </div>
+        <h1></h1>
+        <div class="editprofile">
+          <button class="account-symbol"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+          <button class="account-text">Edit Profile</button>
+        </div>
+        <h1></h1>
+        <div class="tutor">
+          <button class="tutor-symbol"><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+          <button class="about-text">Add your Tutor</button>
+        </div>
+        <h1 class="tut"></h1>
+        <div class="log-out">
+          <button class="logout-symbol"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+          <button class="logout-text">Log Out</button>
+        </div>
+      </div>
+      <div class="navigation">
+        <center><button class="home"><i class="fa fa-home" aria-hidden="true"></i></button>
+        <button class="notifications"><i class="fa fa-bell" aria-hidden="true"></i></button>
+        <button class="search"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <button class="settings"><i class="fa fa-cog" aria-hidden="true"></i></button></center>
+      </div>
+    </div>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/settings.js"></script>
+  </body>
+</html>

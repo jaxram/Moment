@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+
+}
+
+.heading {
+  font-size: 24px;
+  font-family: sans-serif;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: none;
+  background-color: black;
+  font-weight: bold;
+  color:white;
+}
+
+.close {
+  position: absolute;
+  border: none;
+  background-color:black;
+  top: 20px;
+  font-size: 20px;
+  right: 20px;
+  color: white;
+}
+
+.description {
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.5;
+  width: 90%;
+  margin-left: 20px;
+  margin-top: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.icons {
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.5;
+  width: 90%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.logo {
+  width: 50%;
+  margin-top: 20px;
+  
+}
+
+h1 {
+  font-size: 20px;
+  font-family: sans-serif;
+  line-height: 1.6;
+  width: 90%;
+  color: white;
+}
+
+h2 {
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.6;
+  width: 90%;
+  color: white;
+}
+
+h3 {
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.6;
+  width: 90%;
+  color: white;
+}
+
+.tcelogo {
+  margin-top: 20px;
+  width: 50%;
+}
+
+.sections {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.persondp {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.personname {
+  font-family: sans-serif;
+  font-weight: bold;
+  position: absolute;
+  margin-top: -40px;
+  margin-left: 90px;
+  color: white;
+}

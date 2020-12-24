@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sign Up - MECT Workplace</title>
+		<link rel="stylesheet" href="static/css/signup1.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/css/all.css">
+	</head>
+	<body>
+		{% csrf_token %}
+		<div class="wrapper">
+			<div class="top-bar">
+				<button class="signup-heading">Sign Up</button>
+				<input type="text" value="37" class="dial">
+			</div>
+			<center><h1 class="error">Hi</h1></center>
+			<div class="main">
+				<center><input type="text" placeholder="Name" class="name" /></center>
+				<center><input type="number" placeholder="Mobile Number" class="mobilenumber" /></center>
+				<center>
+				<select class="department">
+					<option value="Staff">Mechatronics</option>
+				</select>
+				</center>
+				<center>
+				<select class="typeofaccount">
+					<option value="" disabled selected>Type of Account</option>
+					<option value="Staff">Staff</option>
+					<option value="Student">Student</option>
+				</select>
+				</center>
+				<center>
+					<select class="designation">
+					<option value="" disabled selected>Designation</option>
+					<option value="Professor">Professor</option>
+					<option value="Associate Professor">Associate Professor</option>
+					<option value="Assistant Professor">Assistant Professor</option>
+					<option value="Student">Student</option>
+					<option value="Others">Others</option>
+				</select>
+			</center>
+			</div>
+			<div class="bottom-bar">
+			<button class="next"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+			</div>
+		</div>
+		<script src="static/js/jquery.js"></script>
+		<script src="static/js/knob.js"></script>
+		<script src="static/js/signup1.js"></script>
+	</body>
+</html>

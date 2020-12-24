@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Groups - MECT Workplace</title>
+    {% if s  == 1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/groups_more.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/groups_more.css' %}">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/css/all.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="top-bar">
+        <button class="heading">Groups</button>
+        <button class="close"><i class="fa fa-times" aria-hidden="true"></i></button>
+      </div>
+      <div class="main">
+        <div class="groups">
+        </div>
+      </div>
+    </div>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/groups_more.js"></script>
+  </body>
+</html>

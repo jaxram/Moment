@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Target - MECT Workplace</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/target1.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/target1.css' %}">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/all.css">
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="wrapper">
+      <div class="top">
+        <button class="heading">Share</button>
+        <!--<button class="close"><i class="fa fa-times" aria-hidden="true"></i></button>-->
+      </div>
+      <div class="choose">
+        <label class="container all">
+          <input type="radio" checked="checked" value="selectall" name="radio">
+          <span class="checkmark"></span>
+          <span class="option">Share with everyone in Tutor card</span>
+        </label>
+        <br>
+        <br>
+        <br>
+        <label class="container select">
+          <input type="radio" value="selectparticular" name="radio">
+          <span class="checkmark"></span>
+          <span class="option">Share only with</span>
+        </label>
+      </div>
+      <div class="members">
+      </div>
+      <div class="done">
+        <button class="next"><i class="fa fa-check" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/target1.js"></script>
+  </body>
+</html>

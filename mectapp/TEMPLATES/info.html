@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Tutor-info</title>
+		{% if s  ==  1 %}
+		<link rel="stylesheet" href="{% static '/dark/css/accountcreated.css' %}">
+		{% else %}
+		<link rel="stylesheet" href="{% static '/css/accountcreated.css' %}">
+		{% endif %}
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/css/all.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="main">
+				<center><h1>Hey {{n}}<br><br><br> Your Tutor is {{k}}</h1></center>
+			</div>
+		</div>
+		<script src="static/js/jquery.js"></script>
+		<script src="static/js/info.js"></script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Group - MECT Workplace</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/groups.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/groups.css' %}">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static '/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static '/css/all.css' %}">
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="wrapper">
+      <div class="top-bar">
+        <button class="back"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+      </div>
+      <div class="main">
+        <center><img src="" class="group-img"></center>
+        <center><h1 class="group-name"></h1></center>
+        <center><h2 class="group-type">Public Group</h2></center>
+        <h1 class="gap"></h1>
+        <center><button class="join">Joined</button></center>
+        <h1 class="line"></h1>
+      </div>
+      <div class="post-main">
+        <h1 class="recent-heading">Recent</h1>
+        <div class="posts-append">
+        </div>
+      </div>
+    </div>
+    <script src="{% static '/js/jquery.js' %}"></script>
+    <script src="{% static '/js/groups.js' %}"></script>
+  </body>
+</html>
