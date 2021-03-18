@@ -1,3 +1,16 @@
+let dummy=1;
+$.ajax({
+  url: "/t50",
+  type: "GET",
+  data:{dummy},
+  success:function(data){
+    console.log(data);
+    if(data>=1 && data<13)
+    {
+      $(".sdetails").hide("fast");
+    }
+  }
+});
 let request1 = 1;
 let email;
 let name;

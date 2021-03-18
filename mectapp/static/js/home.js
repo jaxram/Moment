@@ -577,10 +577,17 @@ $.ajax({
               data: {commentdata,post_id,csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()},
               success:function(){
                 comment.val("");
-                comment.parent().parent().prepend(`<div class="individual-comment">
+                if(commentdata=='')
+                {
+                  console.log('empty');
+                }
+                else
+                {
+                  comment.parent().parent().prepend(`<div class="individual-comment">
                  <img class="comment-img" src="` + userdp +`">
                  <h1 class="comment-text">` + commentdata + `</h1>
                 </div>`);
+                }
             }
            });
        });

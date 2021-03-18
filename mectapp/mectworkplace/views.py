@@ -1322,8 +1322,11 @@ def t21(request):
     t=now.strftime("%d/%m/%y %H:%M:%S")
     postid=request.POST.get('post_id')
     commentdata=request.POST.get('commentdata')
-    c=comment(postid=postid,userid=request.session['userid'],commentdata=commentdata,commenttime=t)
-    c.save()
+    if(commentdata==''):
+        print('empty')
+    else:
+        c=comment(postid=postid,userid=request.session['userid'],commentdata=commentdata,commenttime=t)
+        c.save()
     return HttpResponse('success')
 def t24(request):
     gdata=request.GET.get('getgroupdata')
@@ -2197,5 +2200,10 @@ def t49(request):
     print('saved')
     return HttpResponse("success")
 def t50(request):
-   
-    return HttpResponse("SUCCESS")
+   j1=request.GET.get('dummy')
+   if(j1=='1'):
+       dummy=request.session['userid']
+       print(dummy)
+   else:
+       pass
+   return HttpResponse(json.dumps(dummy))
