@@ -87,7 +87,9 @@ button {
 .logout-symbol {
   color: #dd698b;
 }
-
+.certificate-symbol {
+  color:rgb(169, 20, 255);
+}
 .profile-text {
   color: #fff;
 }

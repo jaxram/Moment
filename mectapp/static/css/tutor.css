@@ -7,22 +7,28 @@ body {
   }
   
   .back {
-    display: block;
-	background-color: transparent;
-	border: none;
-	color: black;
-	outline: 0;
-	font-weight: bold;
+    font-size: 15px;
+      display: block;
+      padding:5px;
+    margin-top: 20px;
+    margin-left:20px;
+      background-color:rgb(247, 244, 244);
+      color: rgb(20, 19, 19);
+    border-radius:5px;
+    outline: 0;
   }
   .Done{
     
-	margin-bottom: 40px;
-	padding-left:300px;
-	background-color: transparent;
-	border: none;
-	color: black;
-	outline: 0;
-	font-weight: bold;
+    font-size: 15px;
+    display: block;
+    padding:5px;
+	margin-top: 40px;
+	margin-left: 82.5%;
+    background-color:rgb(247, 242, 242);
+    color: rgb(7, 7, 7);
+	border-radius:5px;
+	outline: 2;
+	margin-bottom: 20px;
   }
   .button {
     outline: 0;

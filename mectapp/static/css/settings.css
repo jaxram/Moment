@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+
 }
 
 .navigation {
@@ -45,9 +46,11 @@ body {
 }
 
 .main {
-  margin-top: 80px;
+  margin-top: 40px;
   padding-left: 20px;
   width: 90%;
+ 
+  
 }
 
 .main button {
@@ -55,7 +58,7 @@ body {
   background-color: transparent;
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .profile-symbol {
@@ -83,7 +86,12 @@ button {
 .logout-symbol {
   color: #dd698b;
 }
-
+.certificate-symbol {
+  color:purple;
+}
+.data{
+  display: none;
+}
 .main h1 {
   border-bottom: 1px solid #727272;
 }

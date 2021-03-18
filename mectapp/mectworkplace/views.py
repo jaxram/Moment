@@ -1,4 +1,4 @@
-from.models import userid,bio,group,followers_group,posts,privatepost,like,privatereply,comment,followers_people,darkmode,notificationcount,ntime,logout,td
+from.models import userid,bio,group,followers_group,posts,privatepost,like,privatereply,comment,followers_people,darkmode,notificationcount,ntime,logout,td,studentdetails,certificate_details
 from django.shortcuts import render,redirect,HttpResponse
 from passlib.hash import pbkdf2_sha256
 import json
@@ -8,6 +8,9 @@ import base64
 import string
 import random
 import django
+import pandas as pd
+import pdfkit
+
 
 # Create your views here.
 
@@ -103,10 +106,79 @@ def t30(request):
     request.session['mobile']=mobile
     print(request.session['name'])
     print(request.session['mobile'])
-    if request.session['name']=='' and request.session['mobile']=='':
-        print('in if')
-        return HttpResponse('success')
-    elif request.session['name']=='':
+    i1=request.POST.get('rollno')
+    print(i1)
+    i2=request.POST.get('regno')
+    print(i2)
+    i3=request.POST.get('religion')
+    i4=request.POST.get('blood')
+    i5=request.POST.get('dob')
+    i6=request.POST.get('address')
+    i7=request.POST.get('brother')
+    i8=request.POST.get('sister')
+    i9=request.POST.get('fname')
+    i10=request.POST.get('fmob')
+    i11=request.POST.get('fmail')
+    i12=request.POST.get('foccu')
+    i13=request.POST.get('fincome')
+    i14=request.POST.get('mname')
+    i15=request.POST.get('mmob')
+    i16=request.POST.get('mmail')
+    i17=request.POST.get('moccu')
+    i18=request.POST.get('mincome')
+    i19=request.POST.get('sslcname')
+    i20=request.POST.get('sslcadd')
+    i21=request.POST.get('sslcyr')
+    i22=request.POST.get('sslcmarks')
+    i23=request.POST.get('hscname')
+    i24=request.POST.get('hscadd')
+    i25=request.POST.get('hscyr')
+    i26=request.POST.get('hscmarks')
+    i27=request.POST.get('maths')
+    i28=request.POST.get('physics')
+    i29=request.POST.get('chemistry')
+    i30=request.POST.get('cutoff')
+    i31=request.POST.get('dipcgpa')
+    i32=request.POST.get('dipname')
+    i33=request.POST.get('overall')
+    i34=request.POST.get('communityrank')
+    i35=request.POST.get('disability')
+    i36=request.POST.get('amount')
+    i37=request.POST.get('loanamount')
+    i38=request.POST.get('room')
+    i39=request.POST.getlist('box[]')
+    i40=request.POST.getlist('box1[]')
+    i41=request.POST.getlist('box2[]')
+    i42=request.POST.get('gender')
+    i43=request.POST.get('degree')
+    i44=request.POST.get('admission')
+    i45=request.POST.get('community')
+    i46=request.POST.get('foccudes')
+    i47=request.POST.get('moccudes')
+    i48=request.POST.get('schoolloc')
+    i49=request.POST.get('schooltype')
+    i50=request.POST.get('mediumstudy')
+    i51=request.POST.get('aftersslc')
+    i52=request.POST.get('hscschoollocation')
+    i53=request.POST.get('hscschooltype')
+    i54=request.POST.get('hscmediumstudy')
+    i55=request.POST.get('fgraduate')
+    i56=request.POST.get('physicalc')
+    i57=request.POST.get('eloan')
+    i58=request.POST.get('hostel')
+    i59=request.POST.get('scholarship')
+    print(i39)
+    print(i40)
+    print(i41)
+    print(i42)
+   
+    a60=studentdetails.objects.filter(userid=request.session['userid']).values()
+    if(len(a60)==0):
+        a1=studentdetails(userid=request.session['userid'])
+        a1.save()
+    else:
+        pass 
+    if request.session['mobile']!='':
         try:
             b1=bio.objects.filter(userid=request.session['userid']).update(mobile=request.session['mobile'])
             print('in elif')
@@ -114,20 +186,325 @@ def t30(request):
         except:
             print('mobile number already exists')
             return HttpResponse('mobile number already exists')
-    elif request.session['mobile']=='':
+    else:
+        pass
+    if request.session['name']!='':
         b1=bio.objects.filter(userid=request.session['userid']).update(name=request.session['name'])
-        print('in elif')
+        b2=studentdetails.objects.filter(userid=request.session['userid']).update(name=request.session['name'])
         return HttpResponse('success')
     else:
-        b3=bio.objects.filter(userid=request.session['userid']).update(name=request.session['name'])
-        print('in else')
-        try:
-            b1=bio.objects.filter(userid=request.session['userid']).update(mobile=request.session['mobile'])
-            
-            return HttpResponse('success')
-        except:
-            print('mobile number already exists')
-            return HttpResponse('mobile number already exists')
+         b1=bio.objects.filter(userid=request.session['userid']).values()
+         for i in b1.values():
+             b2=studentdetails.objects.filter(userid=request.session['userid']).update(name=i['name'])
+    if(i1==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(rollno=i1)
+        print('saved')
+    if(i2==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(regno=i2)
+        print('saved')
+    if(i3==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(religion=i3)
+        print('saved')
+    if(i4==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(blood=i4)
+        print('saved')
+    if(i5==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(dob=i5)
+        print('saved')
+    if(i6==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(address=i6)
+        print('saved')
+    if(i7==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(brother=i7)
+        print('saved')
+    if(i8==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(sister=i8)
+        print('saved')
+    if(i9==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_name=i9)
+        print('saved')
+    if(i10==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_mobile=i10)
+        print('saved')
+    if(i11==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_mail=i11)
+        print('saved')
+    if(i12==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_occupation=i12)
+        print('saved')
+    if(i13==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_income=i13)
+        print('saved')
+    if(i14==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_name=i14)
+        print('saved')
+    if(i15==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_mobile=i15)
+        print('saved')
+    if(i16==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_mail=i16)
+        print('saved')
+    if(i17==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_occupation=i17)
+        print('saved')
+    if(i18==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_income=i18)
+        print('saved')
+    if(i19==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_sslc=i19)
+        print('saved')
+    if(i20==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_address_sslc=i20)
+        print('saved')
+    if(i21==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(sslc_year=i21)
+        print('saved')
+    if(i22==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(sslc_marks=i22)
+        print('saved')
+    if(i23==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_hsc=i23)
+        print('saved')
+    if(i24==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_address_hsc=i24)
+        print('saved')
+    if(i25==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(hsc_year=i25)
+        print('saved')
+    if(i26==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(hsc_marks=i26)
+        print('saved')
+    if(i27==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(maths_mark=i27)
+        print('saved')
+    if(i28==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(physics_mark=i28)
+        print('saved')
+    if(i29==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(chemistry_mark=i29)
+        print('saved')
+    if(i30==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(cutoff=i30)
+        print('saved')
+    if(i31==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(diploma_cgpa=i31)
+        print('saved')
+    if(i32==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(college_diploma=i32)
+        print('saved')
+    if(i33==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(TNEA_overall=i33)
+        print('saved')
+    if(i34==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(TNEA_community=i34)
+        print('saved')
+    if(i35==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(Disability=i35)
+        print('saved')
+    if(i36==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(scholarship_amount=i36)
+        print('saved')
+    if(i37==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(education_loan=i37)
+        print('saved')
+    if(i38==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(hostel_room=i38)
+        print('saved')
+    if(i39==''):
+        pass
+    else:
+        b=''
+        for i in i39:
+           b=b+'__'+i
+        print(b) 
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(achievements=b)
+        print('saved')
+    if(i40==''):
+        pass
+    else:
+        b1=''
+        for i in i40:
+           b1=b1+'__'+i
+        print(b1) 
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(scholarship_details=b1)
+        print('saved')
+    if(i41==''):
+        pass
+    else:
+        b2=''
+        for i in i41:
+           b2=b2+'__'+i
+        print(b2) 
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(extra_curricular=b2)
+        print('saved')
+    if(i42==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(gender_user=i42)
+        print('saved')
+    if(i43==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(degree=i43)
+        print('saved')
+    if(i44==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(degree_details=i44)
+        print('saved')
+    if(i45==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(community=i45)
+        print('saved')
+    if(i46==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(foccupation_type=i46)
+        print('saved')
+    if(i47==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(moccupation_type=i47)
+        print('saved')
+    if(i48==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_location=i48)
+        print('saved')
+    if(i49==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_type=i49)
+        print('saved')
+    if(i50==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(mediumstudy=i50)
+        print('saved')
+    if(i51==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(sslcafter=i51)
+        print('saved')
+    if(i52==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(hscschoollocation=i52)
+        print('saved')
+    if(i53==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(hscschooltype=i53)
+        print('saved')
+    if(i54==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(hscmediumstudy=i54)
+        print('saved')
+    if(i55==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(firstgraduate=i55)
+        print('saved')
+    if(i56==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(physically_challenged=i56)
+        print('saved')
+    if(i57==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(eloan=i57)
+        print('saved')
+    if(i58==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(hostel=i58)
+        print('saved')
+    if(i59==''):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(scholarship=i59)
+        print('saved')
+
+    return HttpResponse('success')
 def t31(request):
     tar=request.GET.get('target')
     if tar=='1':
@@ -1778,3 +2155,47 @@ def t48(request):
         b=privatepost(userid=i,postid=postid)
         b.save()
     return HttpResponse('success')
+def data(request):
+    now=datetime.datetime.now()
+    t=now.strftime("%d/%m/%y %H:%M:%S")
+    print(t)
+    v=posts.objects.filter(groupid=12).values()
+    print(v)
+    df = pd.DataFrame(v)
+    print(df)
+    print('data saved')
+    return HttpResponse("success")
+def certificate(request):
+    b7=darkmode.objects.filter(userid=request.session['userid'])
+    for i in b7.values():
+        del i['id']
+        del i['userid']
+    s=i['dark']
+    return render(request,'certificate.html',{'s':s})
+def t49(request):
+    a1=request.POST.get('rno')
+    a2=request.POST.get('sd')
+    a3=request.POST.get('ed')
+    a4=request.POST.get('type')
+    a5=request.POST.get('event_1')
+    a6=request.POST.get('ndays')
+    a7=request.POST.get('eloc')
+    print(a1)
+    print(a2)
+    print(a3)
+    print(a4)
+    print(a5)
+    print(a6)
+    print(a7)
+    a8=bio.objects.filter(userid=request.session['userid']).values()
+    for i in a8.values():
+        a9=i['name']
+    print(a9)
+    a10=certificate_details(_userid=request.session['userid'],name=a9,regno=a1,startdate=a2,enddate=a3,eventtype=a4,eventname=a5
+    ,eventdays=a6,location=a7)
+    a10.save()
+    print('saved')
+    return HttpResponse("success")
+def t50(request):
+   
+    return HttpResponse("SUCCESS")

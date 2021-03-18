@@ -1,3 +1,4 @@
+
 $(".home").on("click", function () {
   window.location.replace("home");
 });
@@ -26,6 +27,18 @@ $(".about").on("click", function () {
 $(".tutor").on("click",function(){
   window.location.replace("tutor");
 });
+$(".certificate").on("click",function(){
+  window.location.replace("certificate");
+});
+$(".data").on("click",function(){
+  $.ajax({
+    url: "/data",
+    type: "GET",
+    success:function(){
+      console.log("success");
+    }
+  });
+});
 let dark;
 let request = 1;
 let request_1=1;
@@ -36,10 +49,16 @@ $.ajax({
   success:function(data){
     var parsedData=JSON.parse(data);
     console.log(parsedData);
-    if(parsedData<13)
+    if(parsedData>2 && parsedData<13)
     {
       $(".tut").hide("fast");
       $(".tutor").hide("fast");
+    }
+    else if(parsedData==1)
+    {
+      $(".tut").hide("fast");
+      $(".tutor").hide("fast");
+      $(".data").css("display", "block");
     }
 
   }

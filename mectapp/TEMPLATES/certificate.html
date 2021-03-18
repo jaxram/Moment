@@ -1,0 +1,72 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate_upload</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/certificate.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/certificate.css' %}">
+    {% endif %}
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <button class="back">Back</button>
+    <div class="top">
+        <center><h1>Certificate-Details</h1></center>
+    </div>
+    <div class="wrapper">
+        {% csrf_token %}
+       
+        <div class="input-data">
+          <input  type="text" required class="rno">
+          <label for="name">Reg.no</label><br>
+        </div><br>
+        <div class="input-data">
+            <input type="text" required placeholder="dd-mm-yyyy" class="sdate">
+            <label for="name">Start date</label><br>
+          </div><br>
+          <div class="input-data">
+            <input type="text"  required placeholder="dd-mm-yyyy" class="edate">
+            <label for="name">End date</label><br>
+          </div><br>
+          <div class="input">
+            <select class="inbox">
+                <option value="" disabled selected>Type</option>
+                <option value="Sports">Sports</option>
+                <option value="Culturals">Culturals</option>
+                <option value="Academic">Academic</option>
+                <option value="MOOC">MOOC</option>
+                <option value="Intern">Intern</option>
+                </select>
+          </div><br>
+          <div class="input-data">
+            <input type="text"  required class="event" >
+            <label for="name">Event name</label><br>
+          </div><br>
+          <div class="input-data">
+            <input type="text" required class="days">
+            <label for="name">No of days</label><br>
+          </div>
+          <div class="input-data">
+            <input type="text" required class="location">
+            <label for="name">Location</label>
+          </div>
+      </div><br>
+      <div class="miss">
+        <center><h3>Fill the missing fields</h3></center>
+      </div>
+      <div class="added">
+        <center><h3>Certificate added sucessfully</h3></center>
+    </div>
+      <div class="bottom-bar">
+        <button class="next">Done</button>
+        </div>
+   
+    
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/certificate.js"></script>
+</body>
+</html>

@@ -85,8 +85,10 @@ select option {
 
 .add-tag {
   border: none;
-  background-color: transparent;
-  margin-left: 10px;
+  background-color:transparent;
+  margin-left: 2px;
+
+ 
 }
 
 .add-post {
@@ -106,11 +108,18 @@ select option {
   height: 30px;
 }
 
-.add-tag-img {
-  width: 30px;
-  height: 30px;
+.fa-paperclip {
+ 
+  color:rgb(241, 234, 234);
+  font-size:25px;
+  padding:5px;
+ 
 }
-
+.file-view
+{
+  width:90%;
+  max-height:400px;
+}
 .post-img {
   max-width: 90%;
   max-height: 300px;

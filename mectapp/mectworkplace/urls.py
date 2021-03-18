@@ -72,6 +72,8 @@ urlpatterns = [
     path('t46',views.t46,name='t46'),
     path('t47',views.t47,name='t47'),
     path('t48',views.t48,name='t48'),
+    path('t49',views.t49,name='t49'),
+    path('t50',views.t50,name='t50'),
     path('tutor',views.tutor,name='tutor'),
     path('info',views.info,name='info'),
     path('about',views.about,name='about'),
@@ -84,6 +86,7 @@ urlpatterns = [
     path('notifications/like/<int:did>',views.lc,name='notifications/like'),
     path('notifications/comment/<int:did>',views.lc,name='notification/comment'),
     path('notifications/reply/<int:did>',views.rep,name='notification/reply'),
-
+    path('data',views.data,name='data'),
+    path('certificate',views.certificate,name='certificate'),
 
 ]

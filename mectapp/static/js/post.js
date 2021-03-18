@@ -30,7 +30,7 @@ $(".add-img").on("click", function () {
 });
 
 $(".add-tag").on("click", function () {
-  window.location.replace("tag");
+  $("input").click();
 });
 
 $(".back").on("click", function () {
@@ -40,9 +40,12 @@ $(".back").on("click", function () {
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
-
+    
     reader.onload = function(e) {
+      console.log(e.target.result)
       $('.post-img').attr('src', e.target.result);
+      $('.file-view').attr('src',e.target.result);
+
       postimg = (e.target.result.replace(/^data:image\/(png|jpg);base64,/, ""));
     }
 
