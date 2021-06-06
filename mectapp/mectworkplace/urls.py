@@ -4,9 +4,9 @@ from . import views
 
 
 urlpatterns = [
-    
-    
-    
+
+
+
     path('',views.index, name='index'),
     path('index1',views.index1,name='index1'),
     path('signup',views.signup, name='signup'),
@@ -88,5 +88,7 @@ urlpatterns = [
     path('notifications/reply/<int:did>',views.rep,name='notification/reply'),
     path('data',views.data,name='data'),
     path('certificate',views.certificate,name='certificate'),
+    path('loadcomment',views.loadcomment,name='loadcomment'),
+    path('loadtut',views.loadtut,name='loadtut'),
 
 ]

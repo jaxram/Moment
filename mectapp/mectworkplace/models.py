@@ -5,10 +5,10 @@ class userid(models.Model):
     userid=models.AutoField(primary_key=True)
     email=models.CharField(max_length=50,unique=True)
     password=models.CharField(max_length=256)
-   
 
-     
- 
+
+
+
 class bio(models.Model):
     userid=models.IntegerField(primary_key=True)
     name=models.CharField(max_length=45)
@@ -19,20 +19,20 @@ class bio(models.Model):
     class Meta:
         indexes = [
             models.Index(fields=['userid'], name='fk_bio_id1_idx'),
-      
-       
+
+
         ]
 class comment(models.Model):
     postid=models.IntegerField()
     userid=models.IntegerField()
-    commentdata=models.CharField(max_length=45,null=True)
+    commentdata=models.CharField(max_length=200,null=True)
     commenttime=models.CharField(max_length=35,null=True)
     class Meta:
         indexes = [
             models.Index(fields=['postid'], name='fk_comment_posts1_idx'),
             models.Index(fields=['userid'], name='fk_comment_id1_id'),
-      
-       
+
+
         ]
 class followers_group(models.Model):
     userid=models.IntegerField()
@@ -40,9 +40,9 @@ class followers_group(models.Model):
     class Meta:
         indexes = [
             models.Index(fields=['groupid'], name='fk_followers_group_groups1_idx'),
-            
-      
-       
+
+
+
         ]
 class followers_people(models.Model):
     id_to_follow=models.IntegerField()
@@ -51,8 +51,8 @@ class followers_people(models.Model):
         indexes = [
             models.Index(fields=['id_to_follow'], name='fk_followers_people_id1_idx'),
             models.Index(fields=['id_follow'], name='fk_followers_people_id2_idx'),
-      
-       
+
+
         ]
 
 
@@ -64,20 +64,20 @@ class joinrequest(models.Model):
         indexes = [
             models.Index(fields=['personid'], name='fk_joinrequest_id1_idx'),
             models.Index(fields=['groupd'], name='fk_joinrequest_groups1_idx'),
-      
-       
+
+
         ]
 class like(models.Model):
     postid=models.IntegerField()
     userid=models.IntegerField()
     liketime=models.CharField(max_length=35,null=True)
     class Meta:
-        
+
         indexes = [
             models.Index(fields=['postid'], name='fk_like_posts1_idx'),
             models.Index(fields=['userid'], name='fk_like_id1_idx'),
-      
-       
+
+
         ]
 class posts(models.Model):
     postid=models.AutoField(primary_key=True)
@@ -91,8 +91,8 @@ class posts(models.Model):
         indexes = [
             models.Index(fields=['groupid'], name='fk_posts_groups1_idx'),
             models.Index(fields=['userid'], name='fk_posts_id1_idx'),
-      
-       
+
+
         ]
 class privatereply(models.Model):
     idfrom=models.IntegerField()
@@ -105,19 +105,19 @@ class privatereply(models.Model):
         indexes = [
             models.Index(fields=['idfrom'], name='fk_privatereply_id1_idx'),
             models.Index(fields=['idto'], name='fk_privatereply_id2_idx'),
-      
+
         ]
 class privatepost(models.Model):
     userid=models.IntegerField()
-    postid=models.IntegerField()    
+    postid=models.IntegerField()
 class darkmode(models.Model):
     userid=models.IntegerField(default=0)
     dark=models.IntegerField(default=0)
 class notificationcount(models.Model):
-    userid=models.IntegerField(default=0)
+    userid=models.IntegerField(default=0,unique=True)
     nocount=models.IntegerField(default=0)
 class ntime(models.Model):
-    userid=models.IntegerField(default=0)
+    userid=models.IntegerField(default=0,unique=True)
     ptime=models.CharField(max_length=50)
     etime=models.CharField(max_length=50)
 class group(models.Model):
@@ -199,6 +199,7 @@ class studentdetails(models.Model):
     scholarship_details=models.CharField(max_length=200)
     extra_curricular=models.CharField(max_length=500)
     gender_user=models.CharField(max_length=50)
+    dept=models.CharField(max_length=25,default='Mechatronics')
 class certificate_details(models.Model):
     _userid=models.IntegerField(default=0)
     name=models.CharField(max_length=50)

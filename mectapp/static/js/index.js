@@ -2,7 +2,6 @@ let login = 1;
 let email;
 let password;
 let a;
-
 $(window).on("load", function() {
 	setTimeout(function () {
 	$(".loading").hide();

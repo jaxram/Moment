@@ -1,3 +1,4 @@
+
 $(".group1").on("click", function() {
 
   $.ajax({

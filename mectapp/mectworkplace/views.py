@@ -10,7 +10,7 @@ import random
 import django
 import pandas as pd
 import pdfkit
-
+import os
 
 # Create your views here.
 
@@ -80,26 +80,37 @@ def t4(request):
 
     req2=request.POST.get('request2')
     a=request.POST.get('imgdata')
-
+    userid_1=request.POST.get('userid')
+    userid_1=int(userid_1)
+    if(userid_1!='' and userid_1!=None):
+        request.session['userid']=userid_1
     if req2=='1':
         if a==None:
             c='static/images/profile-user.png'
             b2=bio.objects.filter(userid=request.session['userid']).update(profilepic=c)
-        
+
             return HttpResponse('sucess')
         else:
             b=a[a.find(",")+1:]
             image_64_decode = base64.b64decode(b)
             c=r'static/dp/'+str(request.session['userid'])+r'_dp.jpg'
+            d=c[13:]
             image_result = open(c, 'wb+') # create a writable image and write the decoding result
             image_result.write(image_64_decode)
 
-            b2=bio.objects.filter(userid=request.session['userid']).update(profilepic=c)
-        
+            b2=bio.objects.filter(userid=request.session['userid']).update(profilepic=d)
+
             return HttpResponse('sucess')
     else:
         pass
 def t30(request):
+    userid_1=request.POST.get('userid')
+    
+    if(userid_1!='' and userid_1!=None):
+        request.session['userid']=userid_1
+        userid_1=int(userid_1)
+    else:
+        pass
     name=request.POST.get('name')
     request.session['name']=name
     mobile=request.POST.get('mobilenumber')
@@ -167,17 +178,18 @@ def t30(request):
     i57=request.POST.get('eloan')
     i58=request.POST.get('hostel')
     i59=request.POST.get('scholarship')
+    i60=request.POST.get('dept')
     print(i39)
     print(i40)
     print(i41)
     print(i42)
-   
+
     a60=studentdetails.objects.filter(userid=request.session['userid']).values()
     if(len(a60)==0):
         a1=studentdetails(userid=request.session['userid'])
         a1.save()
     else:
-        pass 
+        pass
     if request.session['mobile']!='':
         try:
             b1=bio.objects.filter(userid=request.session['userid']).update(mobile=request.session['mobile'])
@@ -196,312 +208,318 @@ def t30(request):
          b1=bio.objects.filter(userid=request.session['userid']).values()
          for i in b1.values():
              b2=studentdetails.objects.filter(userid=request.session['userid']).update(name=i['name'])
-    if(i1==''):
+    if(i1==''or i1==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(rollno=i1)
         print('saved')
-    if(i2==''):
+    if(i2==''or i2==None ):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(regno=i2)
         print('saved')
-    if(i3==''):
+    if(i3==''or i3==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(religion=i3)
         print('saved')
-    if(i4==''):
+    if(i4==''or i4==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(blood=i4)
         print('saved')
-    if(i5==''):
+    if(i5==''or i5==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(dob=i5)
         print('saved')
-    if(i6==''):
+    if(i6==''or i6==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(address=i6)
         print('saved')
-    if(i7==''):
+    if(i7==''or i7==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(brother=i7)
         print('saved')
-    if(i8==''):
+    if(i8==''or i8==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(sister=i8)
         print('saved')
-    if(i9==''):
+    if(i9==''or i9==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_name=i9)
         print('saved')
-    if(i10==''):
+    if(i10==''or i10==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_mobile=i10)
         print('saved')
-    if(i11==''):
+    if(i11==''or i11==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_mail=i11)
         print('saved')
-    if(i12==''):
+    if(i12==''or i12==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_occupation=i12)
         print('saved')
-    if(i13==''):
+    if(i13==''or i13==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(father_income=i13)
         print('saved')
-    if(i14==''):
+    if(i14==''or i14==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_name=i14)
         print('saved')
-    if(i15==''):
+    if(i15==''or i15==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_mobile=i15)
         print('saved')
-    if(i16==''):
+    if(i16==''or i16==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_mail=i16)
         print('saved')
-    if(i17==''):
+    if(i17==''or i17==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_occupation=i17)
         print('saved')
-    if(i18==''):
+    if(i18==''or i18==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(mother_income=i18)
         print('saved')
-    if(i19==''):
+    if(i19==''or i19==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_sslc=i19)
         print('saved')
-    if(i20==''):
+    if(i20==''or i20==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_address_sslc=i20)
         print('saved')
-    if(i21==''):
+    if(i21==''or i21==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(sslc_year=i21)
         print('saved')
-    if(i22==''):
+    if(i22==''or i22==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(sslc_marks=i22)
         print('saved')
-    if(i23==''):
+    if(i23==''or i23==Noneandi==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_hsc=i23)
         print('saved')
-    if(i24==''):
+    if(i24==''or i24==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_address_hsc=i24)
         print('saved')
-    if(i25==''):
+    if(i25==''or i25==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(hsc_year=i25)
         print('saved')
-    if(i26==''):
+    if(i26==''or i26==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(hsc_marks=i26)
         print('saved')
-    if(i27==''):
+    if(i27==''or i27==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(maths_mark=i27)
         print('saved')
-    if(i28==''):
+    if(i28==''or i28==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(physics_mark=i28)
         print('saved')
-    if(i29==''):
+    if(i29==''or i29==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(chemistry_mark=i29)
         print('saved')
-    if(i30==''):
+    if(i30==''or i30==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(cutoff=i30)
         print('saved')
-    if(i31==''):
+    if(i31==''or i31==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(diploma_cgpa=i31)
         print('saved')
-    if(i32==''):
+    if(i32==''or i32==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(college_diploma=i32)
         print('saved')
-    if(i33==''):
+    if(i33==''or i33==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(TNEA_overall=i33)
         print('saved')
-    if(i34==''):
+    if(i34==''or i34==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(TNEA_community=i34)
         print('saved')
-    if(i35==''):
+    if(i35==''or i35==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(Disability=i35)
         print('saved')
-    if(i36==''):
+    if(i36==''or i36==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(scholarship_amount=i36)
         print('saved')
-    if(i37==''):
+    if(i37==''or i37==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(education_loan=i37)
         print('saved')
-    if(i38==''):
+    if(i38==''or i38==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(hostel_room=i38)
         print('saved')
-    if(i39==''):
+    if(i39==''or i39==None):
         pass
     else:
         b=''
         for i in i39:
            b=b+'__'+i
-        print(b) 
+        print(b)
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(achievements=b)
         print('saved')
-    if(i40==''):
+    if(i40==''or i40==None):
         pass
     else:
         b1=''
         for i in i40:
            b1=b1+'__'+i
-        print(b1) 
+        print(b1)
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(scholarship_details=b1)
         print('saved')
-    if(i41==''):
+    if(i41==''or i41==None):
         pass
     else:
         b2=''
         for i in i41:
            b2=b2+'__'+i
-        print(b2) 
+        print(b2)
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(extra_curricular=b2)
         print('saved')
-    if(i42==''):
+    if(i42==''or i42==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(gender_user=i42)
         print('saved')
-    if(i43==''):
+    if(i43==''or i43==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(degree=i43)
         print('saved')
-    if(i44==''):
+    if(i44==''or i44==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(degree_details=i44)
         print('saved')
-    if(i45==''):
+    if(i45==''or i45==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(community=i45)
         print('saved')
-    if(i46==''):
+    if(i46==''or i46==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(foccupation_type=i46)
         print('saved')
-    if(i47==''):
+    if(i47==''or i47==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(moccupation_type=i47)
         print('saved')
-    if(i48==''):
+    if(i48=='' or i48==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_location=i48)
         print('saved')
-    if(i49==''):
+    if(i49==''or i49==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_type=i49)
         print('saved')
-    if(i50==''):
+    if(i50==''or i50==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(mediumstudy=i50)
         print('saved')
-    if(i51==''):
+    if(i51=='' or i51==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(sslcafter=i51)
         print('saved')
-    if(i52==''):
+    if(i52==''or i52==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(hscschoollocation=i52)
         print('saved')
-    if(i53==''):
+    if(i53==''or i53==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(hscschooltype=i53)
         print('saved')
-    if(i54==''):
+    if(i54==''or i54==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(hscmediumstudy=i54)
         print('saved')
-    if(i55==''):
+    if(i55==''or i55==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(firstgraduate=i55)
         print('saved')
-    if(i56==''):
+    if(i56==''or i56==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(physically_challenged=i56)
         print('saved')
-    if(i57==''):
+    if(i57==''or i57==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(eloan=i57)
         print('saved')
-    if(i58==''):
+    if(i58==''or i58==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(hostel=i58)
         print('saved')
-    if(i59==''):
+    if(i59==''or i59==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(scholarship=i59)
+        print('saved')
+
+    if(i60==''or i60==None):
+        pass
+    else:
+        a1=studentdetails.objects.filter(userid=request.session['userid']).update(dept=i60)
         print('saved')
 
     return HttpResponse('success')
@@ -541,6 +559,7 @@ def t5(request):
                     return HttpResponse('failed')
     else:
         return HttpResponse('email failed')
+
 def index(request):
     try:
         l1=logout.objects.filter(userid=request.session['userid']).values()
@@ -560,7 +579,7 @@ def index(request):
                     return render (request,'home.html',{'s':s})
     except:
         return render (request,'index.html')
-    
+
 def index1(request):
     return render (request,'index1.html')
 def t6(request):
@@ -572,7 +591,7 @@ def t6(request):
         b=a[a.find(",")+1:]
         image_64_decode = base64.b64decode(b)
         c=r'static/group/'+r'group_'+str(request.session['userid'])+r'_dp.jpg'
-    
+
         image_result = open(c, 'wb+') # create a writable image and write the decoding result
         image_result.write(image_64_decode)
         b3=group(adminid=request.session['userid'],groupname=gpname,groupdp=c)
@@ -636,6 +655,11 @@ def grp(request,gid):
 def t22(request):
     v11=[]
     gp=request.GET.get('getprofile')
+    searchid=request.GET.get('targetuserid')
+    if(searchid!='' or searchid!=None):
+        request.session['searchid']=searchid
+    else:
+        pass
     print(gp)
     app=[]
     fst=[]
@@ -645,7 +669,7 @@ def t22(request):
     b1=bio.objects.filter(userid=request.session['searchid']).values()
     for i in b1.values():
         del i['userid']
-        del i['mobile']
+
         del i['acctype']
         app.append(i)
     print(app)
@@ -703,6 +727,7 @@ def t11(request):
     posttext=request.POST.get('posttext')
     print('inposttext'+posttext)
     a=request.POST.get('postimg')
+    print
     useid=request.POST.get('userid')
     request.session['useid']=useid
     groupname=request.POST.get('groupname')
@@ -712,12 +737,13 @@ def t11(request):
         print('no')
         return HttpResponse('no')
     else:
-        if a==None:
-            c='NULL'
+        if a==None or a=='':
+            d='NULL'
         else:
             b=a[a.find(",")+1:]
             image_64_decode = base64.b64decode(b)
             c=r'static/post/'+r'post_'+str(request.session['useid'])+'_'+str(res)+r'.jpg'
+            d=c[13:]
             z=posts.objects.all().values()
             if len(z)==0:
                 image_result = open(c, 'wb+') # create a writable image and write the decoding result
@@ -736,6 +762,7 @@ def t11(request):
                     if i['imgdata']==c:
                         res=''.join(random.choices(string.ascii_uppercase+string.digits,k=n1))
                         c=r'static/post/'+r'post_'+str(request.session['useid'])+'_'+str(res)+r'.jpg'
+                        d=c[13:]
                     else:
                         image_result = open(c, 'wb+') # create a writable image and write the decoding result
                         image_result.write(image_64_decode)
@@ -746,24 +773,36 @@ def t11(request):
         t=now.strftime("%d/%m/%y %H:%M:%S")
         print(t)
         k=group.objects.filter(groupname=groupname).values()
+        print(k)
         for i in k.values():
             j=i['groupid']
-        print(j)
-        b2=posts(userid=request.session['useid'],groupid=j,postdata=posttext,imgdata=c,posttime=t)
+        #print(j)
+        b2=posts(userid=request.session['useid'],groupid=j,postdata=posttext,imgdata=d,posttime=t)
         b2.save()
+        print('saved in db')
         k1=posts.objects.filter(userid=request.session['useid']).values()
         for i in k1.values():
             p=i['postid']
             request.session['p']=p
             u=i['groupid']
             request.session['u']=u
-        return HttpResponse('Success')
+        return HttpResponse(json.dumps(p))
 def t12(request):
-
+    userid_1=request.GET.get('userid')
+    postid=request.GET.get('postid')
+    if(userid_1!='' or userid_1!=None):
+        request.session['userid']=int(userid_1)
+    else:
+        pass
+    if(postid!='' or postid!=None):
+        request.session['p']=int(postid)
+    else:
+        pass
     y=[]
     z=[]
     z1=[]
     target=request.GET.get('target')
+
     if target=='1':
         l1=bio.objects.filter(userid=request.session['userid']).values()
         for l in l1.values():
@@ -788,6 +827,9 @@ def t12(request):
 def t13(request):
     postid=request.POST.get('postid')
     uid=(request.POST.getlist('userid[]'))
+    userid_1=request.POST.get('userid')
+    if(userid_1!='' and userid_1!=None):
+        uid=userid_1.split(',')
     print(postid)
 
     for i in uid:
@@ -812,10 +854,12 @@ def t15(request):
     if userrequest=='1':
         return HttpResponse(json.dumps(request.session['userid']))
     else:
+        print("else")
         pass
 def t16(request):
     postrequest=request.GET.get('postrequest')
     if postrequest=='1':
+
         a1=[]
         a2=[]
         a3=[]
@@ -855,11 +899,12 @@ def t16(request):
             i.update({'likestatus':0})
             i.update({'commentdata':'null'})
             i.update({'commenttime':'null'})
+            i.update({'commentstatus':0})
             i.update({'dp':'null'})
             i.update({'delete':0})
             request.session['m10'].append(i)
         request.session['m10'].reverse()
-
+        print(p1)
         for i in p1.values():
             n.append(i)
         for i in request.session['m10']:
@@ -870,14 +915,15 @@ def t16(request):
             o.append(j)
         print(o)
         print(request.session['m10'])
-        
+
         xy=[]
         for m in l:
             for j in o:
                 if j['postid']==m:
                    xy.append(j['userid'])
                 else:
-                    print('postid diffErent')
+                    #print('postid diffErent')
+                    pass
             print(xy)
             flag=None
             for k in xy:
@@ -898,9 +944,9 @@ def t16(request):
                 print(request.session['m10'])
                 request.session['m10']=[i for i in request.session['m10'] if not (i['postid']==m)]
             xy.clear()
-            
-            
-        
+
+
+
         for i in request.session['m10']:
             k=i['userid']
             l=i['groupid']
@@ -975,13 +1021,15 @@ def t16(request):
                     j.update({'dp':i['dp']})
                     a3.append(j)
         request.session['m11']=request.session['m10'].copy()
+        request.session['final']=request.session['m10'].copy()
+        print(request.session['m11'])
         z1=len(request.session['m11'])
         for i in request.session['m11']:
             if i['userid']==request.session['userid']:
                 i['delete']=1
             else:
                 pass
-        
+
         print(z1)
 
 
@@ -994,12 +1042,14 @@ def t16(request):
         n11=bio.objects.filter(userid=request.session['userid']).values()
         for i in n11.values():
             request.session['n12']=i['profilepic']
-        
+            request.session['n13']=i['name']
+
         context={
             'post':s,
             'user':x,
             'group':y,
             'userdp':request.session['n12'],
+            'username':request.session['n13'],
             'length':z1
 
         }
@@ -1047,8 +1097,9 @@ def t40(request):
             i.update({'likestatus':0})
             i.update({'commentdata':'null'})
             i.update({'commenttime':'null'})
+            i.update({'commentstatus':0})
             i.update({'dp':'null'})
-            
+
             request.session['m10'].append(i)
         request.session['m10'].reverse()
         print(request.session['m10'])
@@ -1090,9 +1141,9 @@ def t40(request):
                 print(request.session['m10'])
                 request.session['m10']=[i for i in request.session['m10'] if not (i['postid']==m)]
             xy.clear()
-            
-            
-        
+
+
+
         for i in request.session['m10']:
             k=i['userid']
             l=i['groupid']
@@ -1183,13 +1234,16 @@ def t40(request):
         n11=bio.objects.filter(userid=request.session['userid']).values()
         for i in n11.values():
             request.session['n12']=i['profilepic']
+            request.session['n13']=i['name']
 
-        return HttpResponse('sucess')
+        return HttpResponse('success')
 def t17(request):
     c=request.GET.get('startpost')
     a=request.GET.get('endpost')
+    print('----------------------------------------')
     print(c)
     print(a)
+    print('----------------------------------------')
     b=[]
     e=[]
     d=[]
@@ -1204,7 +1258,7 @@ def t17(request):
             'user':e,
             'group':d
         }
-
+    print(context)
 
     return HttpResponse(json.dumps(context))
 def t18(request):
@@ -1248,7 +1302,7 @@ def t18(request):
        k.append(i['postid'])
     print(k)
     x=len(k)
-    print(x)
+    print('count',x)
     p2=posts.objects.filter(postid=postid).values()
     for i in p2.values():
         p1id=i['postid']
@@ -1322,14 +1376,21 @@ def t21(request):
     t=now.strftime("%d/%m/%y %H:%M:%S")
     postid=request.POST.get('post_id')
     commentdata=request.POST.get('commentdata')
-    if(commentdata==''):
-        print('empty')
-    else:
-        c=comment(postid=postid,userid=request.session['userid'],commentdata=commentdata,commenttime=t)
-        c.save()
+    c=comment(postid=postid,userid=request.session['userid'],commentdata=commentdata,commenttime=t)
+    c.save()
     return HttpResponse('success')
 def t24(request):
     gdata=request.GET.get('getgroupdata')
+    fgrpid=request.GET.get('gid1')
+    print('******************',fgrpid)
+    if(fgrpid==None):
+        pass
+    else:
+        request.session['gid1']=int(fgrpid)
+        print('******************',fgrpid)
+        print( 'in else t24-----',request.session['gid1'])
+
+
     w=[]
     request.session['w']=w
     x1=[]
@@ -1339,9 +1400,12 @@ def t24(request):
     x3=[]
     x4=[]
     x5=[]
+
+
     for i in request.session['m11']:
         if request.session['gid1']==i['groupid']:
             request.session['w'].append(i)
+    print('/////',request.session['w'])
     for i in request.session['w']:
         b12=bio.objects.filter(userid=i['userid']).values()
         for j in b12.values():
@@ -1356,6 +1420,7 @@ def t24(request):
                 del j['adminid']
                 del j['groupid']
                 request.session['x2'].append(j)
+
     z2=len(request.session['w'])
     for i in request.session['w'][0:10]:
         x3.append(i)
@@ -1371,6 +1436,7 @@ def t24(request):
             'userdp':request.session['n12'],
             'length':z2
         }
+    print(context)
 
     return HttpResponse(json.dumps(context))
 def t25(request):
@@ -1398,6 +1464,15 @@ def t25(request):
 def t26(request):
     rinfo=request.GET.get('requestinfo')
     x3=[]
+    fgrpid=request.GET.get('gid1')
+    print('******************',fgrpid)
+    if(fgrpid==None):
+        pass
+    else:
+        request.session['gid1']=int(fgrpid)
+        print('******************',fgrpid)
+        print( 'in else t24-----',request.session['gid1'])
+
     print(request.session['gid1'])
     if rinfo=='1':
         g15=group.objects.filter(groupid=request.session['gid1']).values()
@@ -1409,6 +1484,7 @@ def t26(request):
         print(x3)
         return HttpResponse(json.dumps(x3))
     else:
+        print("ele")
         pass
 def t27(request):
     lout=request.GET.get('logout')
@@ -1444,7 +1520,7 @@ def t32(request):
         v1=bio.objects.filter(userid=request.session['userid']).values()
         for i in v1:
             del i['acctype']
-        
+
             x1.append(i)
         return HttpResponse(json.dumps(x1))
     else:
@@ -1643,7 +1719,7 @@ def t34(request):
                 #print(a5)
                 j9=sorted(a5,key=lambda i: (i['commenttime']),reverse=True)
                 print(j9)
-                
+
                 latest=[]
                 earlier=[]
                 n10=ntime.objects.filter(userid=request.session['userid']).values()
@@ -1653,9 +1729,12 @@ def t34(request):
                             latest.append(i)
                         else:
                             earlier.append(i)
+                earlier.reverse()
+
                 context={
                     'latest':latest,
-                    'earlier':earlier
+                    'earlier':earlier,
+                    'n10':j9
                 }
                 return HttpResponse(json.dumps(context))
 
@@ -1683,6 +1762,16 @@ def rep(request,did):
     return render(request,'notifications_reply.html',{'s':s})
 def t36(request):
     req=request.GET.get('request')
+    did=request.GET.get('nofid')
+    type_1=request.GET.get('type')
+    userid=request.GET.get('userid')
+    if(did!=''and did!=None and type_1!='' and type_1!=None and userid!='' and userid!=None):
+        request.session['did']=int(did)
+        request.session['typ']=type_1
+        request.session['userid']=int(userid)
+        print('\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\',request.session['userid'])
+    else:
+        pass
     if req=='1':
         x1=[]
         x2=[]
@@ -1705,21 +1794,25 @@ def t36(request):
                         for n in l5.values():
                             m.update({'cdp':n['profilepic']})
                             x2.append(m)
-                m12=request.session['m11'].copy()
+
+
                 for i in x1:
                     print(i)
-                    print(m12)
-                    for j in m12:
+
+                    for j in request.session['m11']:
                         print(j['userid'])
                         print('in or',j['likestatus'])
+                        print('------------------------',i['postid'],j['postid'],'---------------------------------------------',j['userid'],';;;',request.session['userid'],type(j['userid']),';;;',type(request.session['userid']))
+
                         if i['postid']==j['postid'] and j['userid']==request.session['userid']:
                             i.update({'likestatus':j['likestatus']})
                             i.update({'delete':j['delete']})
-                            
+                            i.update({'commentstatus':0})
+
                         else:
                             pass
                 print('in x1',x1)
-                    
+
             z5=[]
             z10=bio.objects.filter(userid=request.session['userid']).values()
             for i in z10.values():
@@ -1727,7 +1820,8 @@ def t36(request):
             context={
                 'pdata':x1,
                 'cdata':x2,
-                'logindp':z5
+                'logindp':z5,
+                'dummy':request.session['final']
             }
             return HttpResponse(json.dumps(context))
         elif request.session['typ']=='comment':
@@ -1736,6 +1830,7 @@ def t36(request):
             y2=[]
             y3=[]
             y4=[]
+
             for i in c1.values():
                 c2=posts.objects.filter(postid=i['postid']).values()
                 for j in c2.values():
@@ -1756,15 +1851,18 @@ def t36(request):
                             y2.append(m)
                         else:
                             y3.append(m)
-            
+            print('****************************************************************************')
+            print(y1)
             y4=[]
             y4=y2+y3
             print(y4)
             for i in y1:
                 for j in request.session['m11']:
+                    print('------------------------',i['postid'],j['postid'],'---------------------------------------------',j['userid'],';;;',request.session['userid'])
                     if i['postid']==j['postid'] and j['userid']==request.session['userid']:
                         i.update({'likestatus':j['likestatus']})
                         i.update({'delete':j['delete']})
+                        i.update({'commentstatus':1})
                     else:
                         pass
             print(y1)
@@ -1948,15 +2046,25 @@ def editprofdp(request):
 def t41(request):
     del1=request.POST.get('deletepost')
     print(del1)
+
     if del1=='1':
         pid=request.POST.get('postid')
         print(pid)
+        d6=posts.objects.filter(postid=pid).values()
+        print(d6)
+        for data in d6.values():
+            deldata=data['imgdata']
         d1=posts.objects.filter(postid=pid).delete()
         d2=comment.objects.filter(postid=pid).delete()
         d3=like.objects.filter(postid=pid).delete()
         d4=privatereply.objects.filter(postid=pid).delete()
         d5=privatepost.objects.filter(postid=pid).delete()
         print("post deleted")
+        if(deldata=='NULL'):
+            print('datanull')
+        else:
+            print('not null')
+            os.remove(deldata)
         return HttpResponse("post deleted")
     else:
         pass
@@ -1969,7 +2077,10 @@ def cpass(request):
     return render(request,'changepassword.html',{'s':s})
 def t42(request):
     password=request.POST.get('currentpassword')
+    userid_1=request.POST.get('userid')
     print(password)
+    if(userid_1!='' and userid_1!=None):
+        request.session['userid']=int(userid_1)
     pa1=userid.objects.filter(userid=request.session['userid'])
     for i in pa1.values():
         l=i['password']
@@ -1981,10 +2092,15 @@ def t42(request):
             return HttpResponse('Error')
 def t43(request):
     password=request.POST.get('newpassword')
+    print('changed password----------------',password)
+    userid_1=request.POST.get('userid')
+    if(userid_1!='' and userid_1!=None):
+        request.session['userid']=int(userid_1)
     pw=enc=pbkdf2_sha256.hash(str(password))
+    print('hashedpassword----------------',pw)
     pa1=userid.objects.filter(userid=request.session['userid']).update(password=pw)
     print('passwd updated')
-    return HttpResponse('success')
+    return HttpResponse('Success')
 def t44(request):
     y=[]
     z=[]
@@ -2006,7 +2122,7 @@ def t44(request):
                         del i['profilepic']
                     else:
                         z1.append(i)
-                
+
         return HttpResponse(json.dumps(z1))
 def tutor(request):
     b7=darkmode.objects.filter(userid=request.session['userid'])
@@ -2040,20 +2156,27 @@ def tutor(request):
         return render(request,'info.html',{'n':n,'s':s,'k':k})
     else:
         return render(request,'tutor.html',{'s':s})
-            
-  
-            
+
+
+
 def t45(request):
     p2=request.POST.getlist('userid[]')
-    if len(p2)==0:
-        pass
-    else:
-        for i in p2:
-            si=int(i)
-        print(si)
+    tutid=request.POST.get('tutorid')
+    if(tutid!='' and tutid!=None):
+        si=int(tutid)
         n2=td(staff=si,student=request.session['userid'],addflag=1)
         n2.save()
         print('tutor added')
+    else:
+        if len(p2)==0:
+            pass
+        else:
+            for i in p2:
+                si=int(i)
+            print(si)
+            n2=td(staff=si,student=request.session['userid'],addflag=1)
+            n2.save()
+            print('tutor added')
     return HttpResponse('Success')
 def info(request):
     b2=bio.objects.filter(userid=request.session['userid']).values()
@@ -2101,6 +2224,11 @@ def t47(request):
     z1=[]
     z2=[]
     target=request.GET.get('target')
+
+    userid_1=request.GET.get('userid')
+    if(userid_1!='' and userid_1!=None):
+        request.session['userid']=int(userid_1)
+
     if target=='1':
         l1=bio.objects.filter(userid=request.session['userid']).values()
         for l in l1.values():
@@ -2111,13 +2239,13 @@ def t47(request):
                     del k['id']
                     z.append(k)
                 for i in z:
-                    l3=bio.objects.filter(userid=i['student']).values() 
+                    l3=bio.objects.filter(userid=i['student']).values()
                     for j in l3.values():
                         del j['mobile']
                         del j['acctype']
                         del j['designation']
                         z1.append(j)
-                z1.append(request.session['p'])
+
                 z2.append(request.session['userid'])
                 z3={
                     'z1':z1,
@@ -2130,7 +2258,7 @@ def t47(request):
                     del k['id']
                     z.append(k)
                 for i in z:
-                    l3=bio.objects.filter(userid=i['staff']).values() 
+                    l3=bio.objects.filter(userid=i['staff']).values()
                     for j in l3.values():
                         del j['mobile']
                         del j['acctype']
@@ -2140,9 +2268,9 @@ def t47(request):
                         l7=td.objects.filter(staff=m['userid']).values()
                         for n in l7.values():
                             z2.append(n['student'])
-                z1.append(request.session['p'])
-                
-                
+
+
+
                 z3={
                     'z1':z1,
                     'z2':z2
@@ -2151,6 +2279,10 @@ def t47(request):
 def t48(request):
     wholeid=request.POST.getlist('wholeid[]')
     postid=request.POST.get('postid')
+    data=request.POST.get('')
+    if(data!='' and data!=None):
+        #wholeid=data.split(',')
+        pass
     uid=(request.POST.getlist('userid[]'))
     print(postid)
     print(wholeid)
@@ -2160,14 +2292,27 @@ def t48(request):
     return HttpResponse('success')
 def data(request):
     now=datetime.datetime.now()
-    t=now.strftime("%d/%m/%y %H:%M:%S")
-    print(t)
-    v=posts.objects.filter(groupid=12).values()
-    print(v)
-    df = pd.DataFrame(v)
-    print(df)
-    print('data saved')
-    return HttpResponse("success")
+    startdate=now-datetime.timedelta(days=7)
+    startdate=str(startdate.strftime("%d/%m/%y" ))
+    enddate=str(now.strftime("%d/%m/%y"))
+    pval=posts.objects.all()
+    postdata=[]
+    reqpost=[]
+    print(startdate)
+    print(pval)
+    for i in pval.values():
+        postdata.append(i)
+    for i in postdata:
+        date=i['posttime'].strip(' ')
+        if(date[0]>=startdate and date[0]<=enddate):
+            reqpost.append(i)
+
+    context={
+        'startdate':startdate,
+        'enddate':enddate,
+        'postdata':reqpost
+            }
+    return HttpResponse(json.dumps(context))
 def certificate(request):
     b7=darkmode.objects.filter(userid=request.session['userid'])
     for i in b7.values():
@@ -2200,10 +2345,116 @@ def t49(request):
     print('saved')
     return HttpResponse("success")
 def t50(request):
-   j1=request.GET.get('dummy')
-   if(j1=='1'):
-       dummy=request.session['userid']
-       print(dummy)
-   else:
-       pass
-   return HttpResponse(json.dumps(dummy))
+    check=request.GET.get('check')
+    name=[]
+    dp=[]
+    type_1=[]
+    ids=[]
+
+    if(check=='1'):
+        data=bio.objects.all().values()
+        for d in data.values():
+            ids.append(d['userid'])
+            name.append(d['name'])
+            dp.append(d['profilepic'])
+            type_1.append(1)
+        data1=group.objects.all().values()
+        for dat in data1.values():
+            ids.append(dat['groupid'])
+            name.append(dat['groupname'])
+            dp.append(dat['groupdp'])
+            type_1.append(0)
+
+    else:
+        pass
+    context={
+        'id':ids,
+        'name':name,
+        'dp':dp,
+        'type':type_1
+        }
+    print(context)
+
+    return HttpResponse(json.dumps(context))
+
+def loadcomment(request):
+    check=request.GET.get('check')
+    postid=request.GET.get('postid')
+    postid=int(postid)
+    commentdata=[]
+    grpdata=[]
+    if check=='1':
+        for i in request.session['final']:
+            if(i['postid']==postid):
+                i.update({'commentstatus':1})
+                grp=posts.objects.filter(postid=postid).values()
+                for j in grp.values():
+                    g1=group.objects.filter(groupid=j['groupid']).values()
+                    for k in g1.values():
+                        del k['groupid']
+                        del k['adminid']
+                        i.update({'groupname':k['groupname']})
+                        i.update({'groupdp':k['groupdp']})
+                name=bio.objects.filter(userid=i['userid']).values()
+                for l in name.values():
+                    i.update({'name':l['name']})
+                commentdata.append(i)
+
+
+
+    return HttpResponse(json.dumps(commentdata))
+
+def loadtut(request):
+    check=request.GET.get('check')
+    userid=request.GET.get('userid')
+    userid=int(userid)
+    b10=td.objects.filter(student=userid).values()
+    print('mmmmmmmmmmmmmm',len(b10))
+    if len(b10)!=0:
+        b8=td.objects.filter(student=userid).values()
+        for j in b8.values():
+            del j['student']
+            del j['addflag']
+        tutorid=j['staff']
+    else:
+        tutorid='null'
+    return HttpResponse(json.dumps(tutorid))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
