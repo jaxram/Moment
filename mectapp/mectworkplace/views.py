@@ -2067,7 +2067,7 @@ def t41(request):
             print('datanull')
         else:
             print('not null')
-            os.remove('/home/moment23/Mect/mectapp/'+deldata)
+            os.remove(deldata)
         return HttpResponse("post deleted")
     else:
         pass

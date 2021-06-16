@@ -2,9 +2,6 @@ from django.urls import path
 from . import views
 
 
-def custom_page_not_found(request):
-    return django.views.defaults.page_not_found(request)
-
 
 urlpatterns = [
 
