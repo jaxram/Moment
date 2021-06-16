@@ -104,8 +104,9 @@ def t4(request):
         pass
 def t30(request):
     userid_1=request.POST.get('userid')
-    userid_1=int(userid_1)
+    
     if(userid_1!='' and userid_1!=None):
+        userid_1=int(userid_1)
         request.session['userid']=userid_1
     name=request.POST.get('name')
     request.session['name']=name
