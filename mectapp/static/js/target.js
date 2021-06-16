@@ -21,13 +21,13 @@ $.ajax({
       console.log("Success");
       var parsedData = JSON.parse(data);
       console.log(parsedData);
-      length = parsedData.length;
-      postid = parsedData[length-1];
-	    for (let i=0; i<(parsedData.length)-1; i++) {
+      length = parsedData.z1.length;
+      postid = parsedData.z2[0];
+	    for (let i=0; i<(parsedData.z1.length)-1; i++) {
         $(".members").append(`
         <div class="member">
-          <img src="` + parsedData[i].profilepic + `" class="member-img ` + i + `">
-          <button class="member-name">` + parsedData[i].name + `</button>
+          <img src="` + parsedData.z1[i].profilepic + `" class="member-img ` + i + `">
+          <button class="member-name">` + parsedData.z1[i].name + `</button>
         </div>`);
 
       }
@@ -41,12 +41,12 @@ $.ajax({
 
         if(img.attr("src") != "static/images/tick.png") {
           img.attr("src","static/images/tick.png");
-          userid.push(parsedData[imgsrc].userid);
+          userid.push(parsedData.z1[imgsrc].userid);
           console.log(userid);
         }
         else {
-          img.attr("src",parsedData[imgsrc].profilepic);
-          var indexs = userid.indexOf(parsedData[imgsrc].userid);
+          img.attr("src",parsedData.z1[imgsrc].profilepic);
+          var indexs = userid.indexOf(parsedData.z1[imgsrc].userid);
           userid.splice(indexs, 1);
           console.log(userid);
         }

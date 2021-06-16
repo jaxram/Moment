@@ -2,11 +2,14 @@ from django.urls import path
 from . import views
 
 
+def custom_page_not_found(request):
+    return django.views.defaults.page_not_found(request)
+
 
 urlpatterns = [
 
-
-
+   
+    
     path('',views.index, name='index'),
     path('index1',views.index1,name='index1'),
     path('signup',views.signup, name='signup'),
@@ -90,5 +93,6 @@ urlpatterns = [
     path('certificate',views.certificate,name='certificate'),
     path('loadcomment',views.loadcomment,name='loadcomment'),
     path('loadtut',views.loadtut,name='loadtut'),
+    
 
 ]

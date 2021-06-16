@@ -24,8 +24,10 @@ $.ajax({
       var parsedData = JSON.parse(data);
       console.log(parsedData);
       length = parsedData.z1.length;
-      postid = parsedData.z1[length-1];
-	    for (let i=0; i<(parsedData.z1.length)-1; i++) {
+      console.log('length',length);
+      postid = parsedData.z3[0];
+        console.log('pid',postid);
+	    for (let i=0; i<(parsedData.z1.length); i++) {
         $(".members").append(`
         <div class="member">
           <img src="` + parsedData.z1[i].profilepic + `" class="member-img ` + i + `">
@@ -91,7 +93,7 @@ $(".next").on("click", function () {
         window.location.replace("home");
     }
   });
-    
+
   }
   else {
     $.ajax({

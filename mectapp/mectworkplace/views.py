@@ -94,23 +94,19 @@ def t4(request):
             b=a[a.find(",")+1:]
             image_64_decode = base64.b64decode(b)
             c=r'static/dp/'+str(request.session['userid'])+r'_dp.jpg'
-            d=c[13:]
             image_result = open(c, 'wb+') # create a writable image and write the decoding result
             image_result.write(image_64_decode)
 
-            b2=bio.objects.filter(userid=request.session['userid']).update(profilepic=d)
+            b2=bio.objects.filter(userid=request.session['userid']).update(profilepic=c)
 
             return HttpResponse('sucess')
     else:
         pass
 def t30(request):
     userid_1=request.POST.get('userid')
-    
+    userid_1=int(userid_1)
     if(userid_1!='' and userid_1!=None):
         request.session['userid']=userid_1
-        userid_1=int(userid_1)
-    else:
-        pass
     name=request.POST.get('name')
     request.session['name']=name
     mobile=request.POST.get('mobilenumber')
@@ -738,12 +734,11 @@ def t11(request):
         return HttpResponse('no')
     else:
         if a==None or a=='':
-            d='NULL'
+            c='NULL'
         else:
             b=a[a.find(",")+1:]
             image_64_decode = base64.b64decode(b)
             c=r'static/post/'+r'post_'+str(request.session['useid'])+'_'+str(res)+r'.jpg'
-            d=c[13:]
             z=posts.objects.all().values()
             if len(z)==0:
                 image_result = open(c, 'wb+') # create a writable image and write the decoding result
@@ -762,7 +757,7 @@ def t11(request):
                     if i['imgdata']==c:
                         res=''.join(random.choices(string.ascii_uppercase+string.digits,k=n1))
                         c=r'static/post/'+r'post_'+str(request.session['useid'])+'_'+str(res)+r'.jpg'
-                        d=c[13:]
+           
                     else:
                         image_result = open(c, 'wb+') # create a writable image and write the decoding result
                         image_result.write(image_64_decode)
@@ -777,7 +772,7 @@ def t11(request):
         for i in k.values():
             j=i['groupid']
         #print(j)
-        b2=posts(userid=request.session['useid'],groupid=j,postdata=posttext,imgdata=d,posttime=t)
+        b2=posts(userid=request.session['useid'],groupid=j,postdata=posttext,imgdata=c,posttime=t)
         b2.save()
         print('saved in db')
         k1=posts.objects.filter(userid=request.session['useid']).values()
@@ -788,20 +783,19 @@ def t11(request):
             request.session['u']=u
         return HttpResponse(json.dumps(p))
 def t12(request):
-    userid_1=request.GET.get('userid')
-    postid=request.GET.get('postid')
-    if(userid_1!='' or userid_1!=None):
-        request.session['userid']=int(userid_1)
-    else:
-        pass
-    if(postid!='' or postid!=None):
-        request.session['p']=int(postid)
-    else:
-        pass
+
     y=[]
     z=[]
     z1=[]
+    z2=[]
     target=request.GET.get('target')
+    userid_1=request.GET.get('userid')
+    print('t12 userid',userid_1)
+    postid=request.GET.get('postid')
+    if(userid_1!='' and userid_1!=None):
+        request.session['userid']=int(userid_1)
+    if(postid!='' and postid!=None):
+        request.session['p']=int(postid)
 
     if target=='1':
         l1=bio.objects.filter(userid=request.session['userid']).values()
@@ -819,8 +813,13 @@ def t12(request):
                     del i['profilepic']
                 else:
                     z1.append(i)
-            z1.append(request.session['p'])
-        return HttpResponse(json.dumps(z1))
+            z2.append(request.session['p'])
+            z3={
+                'z1':z1,
+                'z2':z2
+                }
+
+        return HttpResponse(json.dumps(z3))
 
     else:
         pass
@@ -849,10 +848,14 @@ def t14(request):
     else:
         pass
 def t15(request):
-
+    final=''
     userrequest=request.GET.get('userrequest')
     if userrequest=='1':
-        return HttpResponse(json.dumps(request.session['userid']))
+        final1=final+str((request.session['userid']))+","
+        staff=bio.objects.filter(userid=request.session['userid']).values()
+        for i in staff.values():
+            final2=final1+str(i['acctype'])
+        return HttpResponse(json.dumps(final2))
     else:
         print("else")
         pass
@@ -1120,7 +1123,7 @@ def t40(request):
                 if j['postid']==m:
                    xy.append(j['userid'])
                 else:
-                    print('postid diffErent')
+                    pass
             print(xy)
             flag=None
             for k in xy:
@@ -2064,7 +2067,7 @@ def t41(request):
             print('datanull')
         else:
             print('not null')
-            os.remove(deldata)
+            os.remove('/home/moment23/Mect/mectapp/'+deldata)
         return HttpResponse("post deleted")
     else:
         pass
@@ -2223,6 +2226,7 @@ def t47(request):
     z=[]
     z1=[]
     z2=[]
+    z3=[]
     target=request.GET.get('target')
 
     userid_1=request.GET.get('userid')
@@ -2245,11 +2249,12 @@ def t47(request):
                         del j['acctype']
                         del j['designation']
                         z1.append(j)
-
+                z3.append(request.session['p'])
                 z2.append(request.session['userid'])
-                z3={
+                z4={
                     'z1':z1,
-                    'z2':z2
+                    'z2':z2,
+                    'z3':z3
                 }
             else:
                 k2=td.objects.filter(student=request.session['userid']).values()
@@ -2270,12 +2275,13 @@ def t47(request):
                             z2.append(n['student'])
 
 
-
-                z3={
+                z3.append(request.session['p'])
+                z4={
                     'z1':z1,
-                    'z2':z2
+                    'z2':z2,
+                    'z3':z3
                 }
-        return HttpResponse(json.dumps(z3))
+        return HttpResponse(json.dumps(z4))
 def t48(request):
     wholeid=request.POST.getlist('wholeid[]')
     postid=request.POST.get('postid')
@@ -2284,7 +2290,7 @@ def t48(request):
         #wholeid=data.split(',')
         pass
     uid=(request.POST.getlist('userid[]'))
-    print(postid)
+    print('postid:  ',postid)
     print(wholeid)
     for i in wholeid:
         b=privatepost(userid=i,postid=postid)
@@ -2295,22 +2301,23 @@ def data(request):
     startdate=now-datetime.timedelta(days=7)
     startdate=str(startdate.strftime("%d/%m/%y" ))
     enddate=str(now.strftime("%d/%m/%y"))
-    pval=posts.objects.all()
+    pval=posts.objects.raw('SELECT * from mectworkplace_posts where posttime>=%s AND posttime<=%s',[startdate,enddate])
+    print('/././././././././././././.',pval)
     postdata=[]
     reqpost=[]
     print(startdate)
     print(pval)
-    for i in pval.values():
+    for i in pval:
         postdata.append(i)
-    for i in postdata:
-        date=i['posttime'].strip(' ')
-        if(date[0]>=startdate and date[0]<=enddate):
-            reqpost.append(i)
+
+
 
     context={
         'startdate':startdate,
         'enddate':enddate,
-        'postdata':reqpost
+        'postdata':reqpost,
+        'wholedata':postdata
+
             }
     return HttpResponse(json.dumps(context))
 def certificate(request):

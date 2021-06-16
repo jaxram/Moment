@@ -1,0 +1,53 @@
+
+.head-img{
+    width:200px;
+    height:200px;
+}
+.title{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 900;
+    margin-top: 40px;
+}
+.opt{
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size:22px;
+    background-color: rgb(45, 197, 45);
+    font-style: normal;
+    padding:4px;
+    border-radius:5px;
+    margin-left: 30px;
+    position: relative;
+    bottom: 10px;
+}
+.downloads{
+    width:100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+}
+.opt1{
+    text-decoration: none;
+    color:rgb(10, 10, 10);
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size:22px;
+    background-color: rgb(253, 192, 101);
+    font-style: normal;
+    padding:4px;
+    border-radius:5px;
+    margin-left: 30px;
+    position: relative;
+    bottom: 10px;
+    
+}
+.side-img{
+    width:40px;
+    height:40px;
+}
+.side-img1{
+    width:40px;
+    height:50px;
+    right:30px;
+}
