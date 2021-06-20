@@ -81,8 +81,9 @@ def t4(request):
     req2=request.POST.get('request2')
     a=request.POST.get('imgdata')
     userid_1=request.POST.get('userid')
-    userid_1=int(userid_1)
+    
     if(userid_1!='' and userid_1!=None):
+        userid_1=int(userid_1)
         request.session['userid']=userid_1
     if req2=='1':
         if a==None:
@@ -315,7 +316,7 @@ def t30(request):
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(sslc_marks=i22)
         print('saved')
-    if(i23==''or i23==Noneandi==None):
+    if(i23==''or i23==None and i==None):
         pass
     else:
         a1=studentdetails.objects.filter(userid=request.session['userid']).update(school_hsc=i23)
@@ -2430,7 +2431,66 @@ def loadtut(request):
 
 
 
+def namelist(request):
+    y=[]
+    z=[]
+    z1=[]
+    z2=[]
+    z3=[]
+    target=request.GET.get('target')
+    userid_1=request.GET.get('userid')
+    if(userid_1!='' and userid_1!=None):
+        request.session['userid']=int(userid_1)
 
+    if target=='1':
+        l1=bio.objects.filter(userid=request.session['userid']).values()
+        for l in l1.values():
+            if(l['acctype']==0):
+                k2=td.objects.filter(staff=request.session['userid']).values()
+                for k in k2.values():
+                    del k['addflag']
+                    del k['id']
+                    z.append(k)
+                for i in z:
+                    l3=bio.objects.filter(userid=i['student']).values()
+                    for j in l3.values():
+                        del j['mobile']
+                        del j['acctype']
+                        del j['designation']
+                        z1.append(j)
+
+                z2.append(request.session['userid'])
+                z4={
+                    'z1':z1,
+                    'z2':z2,
+
+                }
+            else:
+                k2=td.objects.filter(student=request.session['userid']).values()
+                for k in k2.values():
+                    del k['addflag']
+                    del k['id']
+                    z.append(k)
+                for i in z:
+                    l3=bio.objects.filter(userid=i['staff']).values()
+                    for j in l3.values():
+                        del j['mobile']
+                        del j['acctype']
+                        del j['designation']
+                        z1.append(j)
+                    for m in z1:
+                        l7=td.objects.filter(staff=m['userid']).values()
+                        for n in l7.values():
+                            z2.append(n['student'])
+
+
+
+                z4={
+                    'z1':z1,
+                    'z2':z2,
+
+                }
+        return HttpResponse(json.dumps(z4))
 
 
 

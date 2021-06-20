@@ -90,6 +90,6 @@ urlpatterns = [
     path('certificate',views.certificate,name='certificate'),
     path('loadcomment',views.loadcomment,name='loadcomment'),
     path('loadtut',views.loadtut,name='loadtut'),
-    
+     path('namelist',views.namelist,name='namelist'),
 
 ]
