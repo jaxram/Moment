@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile - MECT Workplace</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/profile.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/profile.css' %}">
+    {% endif %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{% static '/css/all.css' %}">
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="wrapper">
+      <div class="top-bar">
+        <button class="back"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <!--<button class="menu"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>-->
+        <!--<button class="menues"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>-->
+      </div>
+      <div class="main">
+        <center><img src="" class="user-img"></center>
+        <center><h1 class="user-name"></h1></center>
+        <center><h2 class="user-designation designation"></h2></center>
+        <center><h2 class="user-designation user-mobile"></h2></center>
+        <h1 class="gap"></h1>
+      </div>
+      <div class="modal">
+        <center><button class="account-details">Account Details</button></center>
+        <h1></h1>
+        <center><button class="edit-profile">Edit Profile</button></center>
+      </div>
+    </div>
+    <script src="{% static '/js/jquery.js' %}"></script>
+    <script src="{% static '/js/userprofile.js' %}"></script>
+  </body>
+</html>

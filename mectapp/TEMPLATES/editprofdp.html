@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Edit DP - MECT Workplace</title>
+	{% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/signup2.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/signup2.css' %}">
+    {% endif %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="static/css/all.css">
+	</head>
+	<body>
+		{% csrf_token %}
+		<div class="wrapper">
+			<div class="top-bar">
+				<button class="signup-heading">Change DP</button>
+				
+			</div>
+			<div class="main">
+				<center><input type="file" class="file"><button class="add-image"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></input></center>
+				<center><img class="img" src=""></center>
+				<center><canvas class="img-canvas"></center>
+				<center><p>Upload an image for your Profile Picture</p></center>
+			</div>
+			<div class="bottom-bar">
+			<button class="next"><i class="fa fa-check" aria-hidden="true"></i></button>
+			</div>
+		</div>
+		<script src="static/js/jquery.js"></script>
+		<script src="static/js/knob.js"></script>
+		<script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+		<script src="static/js/signup2.js"></script>
+	</body>
+</html>

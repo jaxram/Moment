@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    
+  }
+  .top-bar {
+    width: 100%;
+  }
+  
+  .back {
+    font-size: 15px;
+      display: block;
+      padding:5px;
+    margin-top: 20px;
+    margin-left:20px;
+      background-color:rgb(247, 244, 244);
+      color: rgb(20, 19, 19);
+    border-radius:5px;
+    outline: 0;
+  }
+  .Done{
+    
+    font-size: 15px;
+    display: block;
+    padding:5px;
+	margin-top: 40px;
+	margin-left: 82.5%;
+    background-color:rgb(247, 242, 242);
+    color: rgb(7, 7, 7);
+	border-radius:5px;
+	outline: 2;
+	margin-bottom: 20px;
+  }
+  .button {
+    outline: 0;
+  }  
+
+  .member-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none;
+  }
+  .member-name {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    position: absolute;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-weight: bold;
+    color:black;
+  }
+  .members {
+    margin-left: 30px;
+    margin-bottom: 20px;
+  }
+  .head{
+      font-weight: 100;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }

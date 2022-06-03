@@ -1,0 +1,463 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #121212;
+}
+
+.main {
+  margin-top: 40px;
+}
+
+.navigation {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid #121212;
+  background-color: #000000;
+}
+
+.navigation button {
+  background-color: transparent;
+  margin-left: 26px;
+  font-size: 20px;
+  margin-right: 26px;
+  padding-top: 12.5px;
+  outline: 0;
+}
+
+.home {
+  border: none;
+  color: #727272;
+}
+
+.search {
+  border: none;
+  color: #727272;
+}
+
+.notifications {
+  border: none;
+  color: #727272;
+}
+
+.settings {
+  border: none;
+  color: #727272;
+}
+
+.groups {
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-left: 20px;
+  height: 100px;
+}
+
+.group {
+  display: inline;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.group-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline;
+  margin-right: 60px;
+}
+
+.group-name {
+  font-size: 13px;
+  font-family: sans-serif;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: -120px;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  margin-top: 80px;
+  font-weight: bold;
+  left: 120px;
+  color: #fff;
+}
+
+.group-name1 {
+    position: absolute;
+    left: 124px;
+}
+
+.group-name2 {
+    position: absolute;
+    left: 100px;
+}
+
+.group-name3 {
+    position: absolute;
+    left: 120px;
+}
+
+.group-name4 {
+    position: absolute;
+    left: 106px;
+}
+
+.group-name5 {
+    position: absolute;
+    left: 114px;
+}
+
+.group-name6 {
+    position: absolute;
+    left: 116px;
+}
+
+.group-name7 {
+    position: absolute;
+    padding-left: 30px;
+}
+
+.group-img1 {
+  margin-left: 20px;
+}
+
+.group7-img {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+}
+
+.groups-heading {
+  font-family: sans-serif;
+  font-size: 24px;
+  margin-left: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.add-post {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+}
+
+.no-post {
+  display: none;
+}
+
+.no-post-img {
+  width: 40%;
+  margin-top: 80px;
+}
+
+.no-post-text {
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.post {
+  font-size: 40px;
+  background-color: transparent;
+  border: none;
+  color: #ff914d;
+  outline: 0;
+}
+
+.post-img {
+  max-width: 90%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.recent-heading {
+  font-family: sans-serif;
+  font-size: 24px;
+  margin-left: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.post-image {
+  width: 90%;
+  margin-left: 20px;
+  margin-bottom: 60px;
+}
+
+.post-image {
+  position: relative;
+}
+
+.post-text {
+  position: relative;
+}
+
+.group-img-post {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline;
+}
+
+.group-name-post {
+  font-size: 16px;
+  font-family: sans-serif;
+  display: inline-block;
+  position: absolute;
+  padding-left: 20px;
+  color: #fff;
+}
+
+.time-post {
+  font-size: 13px;
+  font-family: sans-serif;
+  color: #727272;
+  display: inline-block;
+  position: absolute;
+  padding-left: 20px;
+  padding-top: 24px;
+}
+
+.post-text-data {
+  font-family: sans-serif;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1.65;
+  color: #fff;
+}
+
+.post-actions {
+  margin-top: 40px;
+}
+
+.liked {
+  color: #ff914d;
+  font-size: 24px;
+}
+
+.like {
+  color: #727272;
+  font-size: 24px;
+}
+
+.like-count {
+  font-size: 16px;
+  margin-right: 20px;
+  color: #fff;
+}
+
+.comment-input {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  position: absolute;
+  padding-left: 20px;
+  font-size: 13px;
+  padding-top: 30px;
+  background-color: #121212;
+  color: #fff;
+}
+
+.comment-submit {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  position: absolute;
+  right: 40px;
+  background-color: transparent;
+  font-size: 13px;
+  padding-top: 30px;
+  color: #fff;
+}
+
+.comment {
+  color: #727272;
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.reply {
+  color: #727272;
+  font-size: 24px;
+}
+
+.post-actions button {
+  background-color: transparent;
+  border: none;
+}
+
+.posted-by {
+  font-size: 13px;
+  font-family: sans-serif;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.comment-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline;
+  margin-top: 20px;
+}
+
+.comment-text {
+  font-size: 13px;
+  font-family: sans-serif;
+  display: inline-block;
+  position: absolute;
+  padding-left: 20px;
+  padding-top: 20px;
+  color: #fff;
+}
+
+.all-comments {
+  display: none;
+}
+
+.comment-see-all {
+  font-size: 13px;
+  font-family: sans-serif;
+  color: 	#727272;
+}
+
+.post-text {
+  width: 90%;
+  margin-left: 20px;
+  margin-bottom: 60px;
+}
+
+.post-actions-text {
+  margin-top: 20px;
+}
+
+input {
+  outline: 0;
+}
+
+.post-actions-text button {
+  background-color: transparent;
+  border: none;
+}
+
+.post-image-only {
+  width: 90%;
+  margin-left: 20px;
+  margin-bottom: 60px;
+}
+
+.group-info-image-only-post {
+  margin-bottom: 20px;
+}
+
+button {
+  outline: 0;
+}
+
+.reply-div {
+  margin-top: 20px;
+  display: none;
+}
+
+.reply-post {
+  border: none;
+  font-size: 16px;
+  background-color: #121212;
+  color: #fff;
+}
+
+.replied {
+  color: #ff914d;
+  font-size: 24px;
+  display: none;
+}
+
+.reply-send {
+  font-size: 14px;
+  color: #fff;
+}
+
+.reply-send-text {
+  font-size: 14px;
+}
+
+.delete-icon {
+  background-color: transparent;
+  color: #727272;
+  border: none;
+  font-size: 16px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.delete-text {
+  font-size: 18px;
+  font-family: sans-serif;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 90%;
+  line-height: 2;
+  color: #fff;
+}
+
+.delete-yes {
+  background-color: transparent;
+  border: none;
+  color: green;
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.delete-no {
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-size: 20px;
+}
+
+.delete-confirmation {
+  display: none;
+}
+
+/*.group-name1 {
+  position: absolute;
+  top: 140px;
+  left: 8px;
+}
+
+.group-name2 {
+  position: absolute;
+  top: 140px;
+  left: 134px;
+}
+
+.group-name3 {
+  position: absolute;
+  top: 140px;
+  left: 220px;
+}*/
+
+@media only screen and (max-width: 400px) {
+  .navigation button {
+    background-color: transparent;
+    margin-left: 20px;
+    font-size: 20px;
+    margin-right: 20px;
+    padding-top: 12.5px;
+    outline: 0;
+  }
+}

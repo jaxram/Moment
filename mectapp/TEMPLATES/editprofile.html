@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Edit Profile - MECT Workplace</title>
+		{% if s  ==  1 %}
+		<link rel="stylesheet" href="{% static '/dark/css/signup1.css' %}">
+		{% else %}
+		<link rel="stylesheet" href="{% static '/css/signup1.css' %}">
+		{% endif %}
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/css/all.css">
+	</head>
+	<body>
+		{% csrf_token %}
+		<div class="wrapper">
+			<div class="top-bar">
+				<button class="signup-heading">Edit profile</button>
+				
+			</div>
+			<center><h1 class="error">Hi</h1></center>
+			<div class="main">
+				<center><input type="text" placeholder="Name" class="name" /></center>
+				<center><input type="number" placeholder="Mobile Number" class="mobilenumber" /></center>
+				<center>
+				<select class="department">
+					<option value="Staff">Mechatronics</option>
+				</select>
+				</center>
+			</div>
+      		<center><button class="dp">Change DP</button></center>
+			<center><button class="password">Change Password</button></center>
+			<div class="sdetails">
+					<center>
+						<select class="gender">
+							<option value="" disabled selected>Gender</option>
+							<option value="male">male</option>
+							<option value="female">female</option>
+							<option value="others">others</option>
+							</select>
+					</center>
+				<center><input type="number" placeholder="Roll no" class="rollno" /></center>
+				<center><input type="text" placeholder="Reg no" class="regno" /></center>
+					<center><select class="degree">
+						<option value="" disabled selected>Degree</option>
+						<option value="B.E">B.E</option>
+						<option value="B.tech">B.Tech</option>
+					</select>
+					<select class="admission">
+						<option value="" disabled selected>Admission</option>
+						<option value="Aided">Aided</option>
+						<option value="SS">SS</option>
+						<option value="MQ">MQ</option>
+						<option value="central-govt">Central Govt</option>
+					</select>
+					<select class="community">
+						<option value="" disabled selected>Community</option>
+						<option value="SC">SC</option>
+						<option value="ST">ST</option>
+						<option value="MBC">MBC</option>
+						<option value="BC">BC</option>
+						<option value="OC">OC</option>
+					</select></center>
+				  <center><input type="text" placeholder="Religion&caste" class="religion" /></center>
+				  <center><input type="text" placeholder="Blood-Group" class="blood" /></center>
+				  <center><input type="text" placeholder="Date of Birth(dd/mm/yyyy)" class="dob" /></center>
+				  <center><input type="text" placeholder="Permanent address" class="address" /></center>
+				  <center><input type="text" placeholder="Number of brothers" class="brother" /></center>
+				  <center><input type="text" placeholder="Number of sisters" class="sister" /></center>
+				  <center><h3>Father Details</h3></center> 
+				  <center><input type="text" placeholder="Father's Name" class="fname" /></center>
+				  <center><input type="number" placeholder="Father's Mobile" class="fmob" /></center>
+				  <center><input type="email" placeholder="Father's Mail id" class="fmail" /></center>
+				  <center><input type="text" placeholder="Father's occupation" class="foccu" /></center>
+					<center>
+						<select class="occu-des">
+							<option value="" disabled selected>Father's occupation type</option>
+							<option value="State-govt">State-Govt</option>
+							<option value="Central-govt">Central-Govt</option>
+							<option value="Private">Private</option>
+							<option value="Others">Others</option>
+						</select>
+					</center>
+					<center><input type="text" placeholder="Father's annual income" class="fincome" /></center>
+					<center><h3>Mother Details</h3></center>
+				  <center><input type="text" placeholder="Mother's name" class="mname" /></center>
+				  <center><input type="number" placeholder="Mother's Mobile" class="mmob" /></center>
+				  <center><input type="email" placeholder="Mother's Mail id" class="mmail" /></center>
+				  <center><input type="text" placeholder="Mother's occupation" class="moccu" /></center>
+					<center>
+						<select class="moccu-des">
+							<option value="" disabled selected>Mother's occupation type</option>
+							<option value="State-govt">State-Govt</option>
+							<option value="Central-govt">Central-Govt</option>
+							<option value="Private">Private</option>
+							<option value="Others">Others</option>
+							<option value="Homemaker">Home-maker</option>
+						</select>
+					</center>
+					
+					<center><input type="text" placeholder="Mother's annual income(if no enter 0)" class="mincome" /></center>
+					<center><h3>SSLC Details</h3></center>
+					<center><input type="text" placeholder="Name of school(SSLC)" class="sslcname" /></center>
+					<center><input type="text" placeholder="School address" class="sslcadd" /></center>
+					<center>
+						<select class="school-loc">
+							<option value="" disabled selected>School location</option>
+							<option value="rural">Rural</option>
+							<option value="urban">Urban</option>
+						</select>
+					</center>
+					<center><input type="text" placeholder="Year of passing" class="sslcyr" /></center>
+					<center><input type="text" placeholder="Mark scored in SSLC" class="sslcmarks" /></center>
+					<center>
+						<select class="school-type">
+							<option value="" disabled selected>School Type</option>
+							<option value="stateboard">State Board</option>
+							<option value="cbse">CBSE</option>
+							<option value="icse">ICSE</option>
+						</select>
+					</center>
+					<center>
+						<select class="medium-study">
+							<option value="" disabled selected>Medium of study</option>
+							<option value="tamil">Tamil</option>
+							<option value="english">English</option>
+							<option value="hindi">Hindi</option>
+							<option value="others">Others</option>
+						</select>
+					</center>
+					<center>
+						<select class="aftersslc">
+							<option value="" disabled selected>12th/Diploma</option>
+							<option value="12th">12th</option>
+							<option value="diploma">Diploma</option>
+						</select>
+					</center>
+					<div class="hsc">
+						<center><h3>HSC Details</h3></center>
+						<center><input type="text" placeholder="Name of school(HSC)" class="hscname" /></center>
+					<center><input type="text" placeholder="School address" class="hscadd" /></center>
+					<center>
+						<select class="school-loch">
+							<option value="" disabled selected>School location</option>
+							<option value="rural">Rural</option>
+							<option value="urban">Urban</option>
+						</select>
+					</center>
+					<center><input type="text" placeholder="Year of passing" class="hscyr" /></center>
+					<center><input type="text" placeholder="Mark scored in HSC" class="hscmarks" /></center>
+					<center>
+						<select class="school-typeh">
+							<option value="" disabled selected>School Type</option>
+							<option value="stateboard">State Board</option>
+							<option value="cbse">CBSE</option>
+							<option value="icse">ICSE</option>
+						</select>
+					</center>
+					<center>
+						<select class="medium-studyh">
+							<option value="" disabled selected>Medium of study</option>
+							<option value="tamil">Tamil</option>
+							<option value="english">English</option>
+							<option value="hindi">Hindi</option>
+							<option value="others">Others</option>
+						</select>
+					</center>
+					<center><input type="text" placeholder="Mark in mathematics" class="maths" /></center>
+					<center><input type="text" placeholder="Mark in physics" class="physics" /></center>
+					<center><input type="text" placeholder="Mark in chemistry" class="chemistry" /></center>
+					<center><input type="text" placeholder="Cutoff(.../200)" class="cutoff" /></center>
+					</div>
+					<div class="diploma">
+						<center><h3>Diploma details</h3></center>
+						<center><input type="text" placeholder="Aggregate CGPA" class="dipcgpa"/></center>
+						<center><input type="text" placeholder="College name" class="dipname"/></center>
+					</div>
+					<center><h3>TNEA Details</h3></center>
+					<center><input type="text" placeholder="TNEA overall rank" class="tor"/></center>
+					<center><input type="text" placeholder="TNEA community rank" class="tcr"/></center>
+					<center><h3>Other Details</h3></center>
+					<center>
+						<select class="fg">
+							<option value="" disabled selected>First graduate</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</center>
+					<center>
+						<select class="physicalc">
+							<option value="" disabled selected>Are you physically challenged</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</center>
+					<div class="physical">
+						<center><input type="text" placeholder="Disability nature" class="disability"/></center>
+					</div>
+					<center><h3>Achievements</h3></center>
+						<div class="multiselect">	
+								<label><input type="checkbox" id="quiz" value="quiz" />Quiz</label>
+								<label><input type="checkbox" class="sports" value="sports" />Sports</label>
+								<label><input type="checkbox" name="ncc" value="ncc" />NCC</label>
+								<label><input type="checkbox" name="nss" value="nss" />NSS</label>
+								<label><input type="checkbox" name="culturals" value="culturals" />Culturals</label>
+								<label><input type="checkbox" name="none" value="none" />None</label>	
+						</div>
+					<center><h3>Scholarship</h3></center>
+					<center>
+						<select class="scholarship">
+							<option value="" disabled selected>Are you avail scholarship</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</center>
+					<div class="multiselect1">	
+						<label><input type="checkbox" class="sc" value="stategovt" />State-Govt</label><br>
+						<label><input type="checkbox" class="sc" value="centralgovt" />Central-Govt</label>
+						<label><input type="checkbox" class="sc" value="tcem" />TCE management</label>
+						<label><input type="checkbox" class="sc" value="alumni" />Alumni</label>
+						<label><input type="checkbox" class="sc" value="private" />Private</label>	
+				</div>
+				<center><input type="text" placeholder="Total amount from scholarship" class="amount"/></center>
+				<center><h3>Loan-details</h3></center>
+				<center>
+					<select class="eloan">
+						<option value="" disabled selected>Educational Loan</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</center>
+				<div class="eloandetails">
+					<center><input type="text" placeholder="Amount sanctioned per year" class="loanamount"/></center>
+					<center><input type="text" placeholder="Name of bank and address" class="bankdetails"/></center>
+				</div>
+				<center><h3>Hostel</h3></center>
+				<center>
+					<select class="hostel">
+						<option value="" disabled selected>Are you hostelor</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</center>
+				<div class="roomdetails">
+					<center><input type="text" placeholder="enter room number with block name" class="room"/></center>
+				</div>
+				<center><h3>Extra-curricular activities</h3></center>
+				<div class="multiselect2">	
+					<label><input type="checkbox" class="sc" value="rotract" />Rotract-club</label><br>
+					<label><input type="checkbox" class="sc" value="professional" />Professional Society</label><br>
+					<label><input type="checkbox" class="sc" value="technical" />Technical clubs</label><br>
+					<label><input type="checkbox" class="sc" value="SIG" />SIG</label><br>
+					<label><input type="checkbox" class="sc" value="Entrepreneur" />Entrepreneur Development Cell</label><br>
+					<label><input type="checkbox" class="sc" value="deptassociation" />Dept association</label><br>
+					<label><input type="checkbox" class="sc" value="quest" />Quest</label><br>
+					<label><input type="checkbox" class="sc" value="placement" />Placement coordinator</label><br>
+					<label><input type="checkbox" class="sc" value="higherstudies" />Higher studies club</label><br>
+					<label><input type="checkbox" class="sc" value="quality circle" />Quality circle</label><br>
+					<label><input type="checkbox" class="sc" value="viscom" />viscom/photography club</label><br>
+					<label><input type="checkbox" class="sc" value="ncc" />NCC</label><br>
+					<label><input type="checkbox" class="sc" value="nss" />NSS</label><br>
+					<label><input type="checkbox" class="sc" value="sports" />Sports</label><br>
+					<label><input type="checkbox" class="sc" value="finearts" />Fine arts club</label><br>
+					<label><input type="checkbox" class="sc" value="culturals" />Culturals club</label><br>
+					<label><input type="checkbox" class="sc" value="class-representative" />Class representative</label><br>
+					<label><input type="checkbox" class="sc" value="class committee member" />Class committee member </label><br>
+					<label><input type="checkbox" class="sc" value="women development" />Women development cell</label><br>
+					<label><input type="checkbox" class="sc" value="languagestudies" />Language studies club</label>		
+			</div>
+				
+				</div>
+			<div class="bottom-bar">
+			<button class="next"><i class="fa fa-check" aria-hidden="true"></i></button>
+			</div>
+		</div>
+		<script src="static/js/jquery.js"></script>
+		<script src="static/js/knob.js"></script>
+		<script src="static/js/editprofile.js"></script>
+	</body>
+</html>

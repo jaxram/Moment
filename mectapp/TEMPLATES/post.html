@@ -1,0 +1,49 @@
+{% load  static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Post - MECT Workplace</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/post.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/post.css' %}">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/css/all.css">
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="wrapper">
+      <div class="top-bar">
+        <button class="back"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <select class="group-name">
+
+        </select>
+        <button class="post">Post</button>
+      </div>
+      <div class="main">
+        <div class="user-info">
+          <img class="user-img" src="">
+          <h1 class="user-name"></h1>
+          <!--<h1 class="tag-name">with 2 others</h1>-->
+        </div>
+        <div class="main-post">
+          <textarea class="post-input" placeholder="What's on your mind?"></textarea>
+          <br>
+          <center><img class="post-img" src=""></center>
+          <center><iframe src="" class="file-view" frameborder="0"></iframe></center>
+          <br>
+          
+          <input class="accept-file" type="file">
+          <button class="add-img"><img src="static/images/picture.png" class="add-img-img"></button>
+         
+          <!--<button class="add-tag"><i class="fa fa-paperclip" aria-hidden="true"></i></button>-->
+          <button class="add-post"><i class="fa fa-check" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/post.js"></script>
+  </body>
+</html>

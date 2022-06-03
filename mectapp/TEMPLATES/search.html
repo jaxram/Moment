@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search - MECT Workplace</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="{% static '/dark/css/search.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static '/css/search.css' %}">
+    {% endif %}
+    <link rel="stylesheet" href="{% static '/css/all.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="{% static '/images/favicon.ico' %}" type="image/x-icon">
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="wrapper">
+      <div class="main">
+        <center><h1 class="heading">Search</h1></center>
+        <button class="search-label"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <center><input type="text" placeholder="Groups, People" class="search-input"/></center>
+        <h1 class="recent-searches">Results</h1>
+        <div class="search-results">
+            
+        </div>
+      
+      </div>
+      <div class="navigation">
+        <center><button class="home"><i class="fa fa-home" aria-hidden="true"></i></button>
+        <button class="notifications"><i class="fa fa-bell" aria-hidden="true"></i></button>
+        <button class="search"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <button class="settings"><i class="fa fa-cog" aria-hidden="true"></i></button></center>
+      </div>
+    </div>
+    <script src= "{% static '/js/jquery.js'%}"></script>
+    <script src="{% static '/js/search.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #121212;
+}
+
+.top-bar {
+  width: 100%;
+}
+
+.back {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  margin-left: 20px;
+  padding-top: 20px;
+}
+
+.group-name {
+  background-color: transparent;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  outline: 0;
+  width: 50%;
+  color: #fff;
+}
+
+select option {
+  background-color: #fff;
+}
+
+.post {
+  background-color: transparent;
+  border: none;
+  color: #727272;
+  font-size: 16px;
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  font-weight: bold;
+}
+
+.user-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 60px;
+  margin-left: 20px;
+  display: inline;
+  display: none;
+}
+
+.user-name {
+  font-size: 16px;
+  font-family: sans-serif;
+  display: inline-block;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 80px;
+  color: #fff;
+}
+
+.tag-name {
+  font-size: 13px;
+  font-family: sans-serif;
+  display: inline-block;
+  position: absolute;
+  color: #727272;
+  margin-left: 20px;
+  margin-top: 110px;
+}
+
+.add-img {
+  border: none;
+  background-color: transparent;
+  margin-left: 20px;
+}
+
+.add-tag {
+  border: none;
+  background-color:transparent;
+  margin-left: 2px;
+
+ 
+}
+
+.add-post {
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  padding-top: 10px;
+  background-color: transparent;
+  color: green;
+  font-weight: bold;
+  margin-left: 40px;
+}
+
+.add-img-img {
+  width: 30px;
+  height: 30px;
+}
+
+.fa-paperclip {
+ 
+  color:rgb(241, 234, 234);
+  font-size:25px;
+  padding:5px;
+ 
+}
+.file-view
+{
+  width:90%;
+  max-height:400px;
+}
+.post-img {
+  max-width: 90%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 90%;
+  margin-left: 28px;
+  margin-top: 40px;
+  border: none;
+  resize: none;
+  outline: none;
+  font-size: 16px;
+  font-family: sans-serif;
+  height: 140px;
+  background-color: #121212;
+  color: #fff;
+}
+
+input {
+  display: none;
+}
+
+button {
+  outline: 0;
+}

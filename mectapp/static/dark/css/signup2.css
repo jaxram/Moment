@@ -1,0 +1,98 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+  background-color: #121212;
+}
+
+.dial {
+	position: absolute;
+	top: 30px;
+	right: 42.5px;
+	display: none;
+}
+
+canvas {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+}
+
+.back {
+	background-color: transparent;
+	border: none;
+	font-size: 20px;
+	position: absolute;
+	top: 45px;
+	left: 30px;
+	outline: 0;
+}
+
+.signup-heading {
+	background-color: transparent;
+	border: none;
+	font-size: 20px;
+	font-weight: bold;
+	position: absolute;
+	top: 45px;
+	left: 30px;
+	outline: 0;
+  color: #fff;
+}
+
+.main {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.file {
+	display: none;
+}
+
+.add-image {
+	font-size: 200px;
+	color: #ff914d;
+	background-color: transparent;
+	border: none;
+	outline: 0;
+}
+
+.main p {
+	font-size: 14px;
+	font-family: sans-serif;
+	font-weight: bold;
+	line-height: 1.5;
+  color: #fff;
+}
+
+.next {
+	font-size: 20px;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	background-color: transparent;
+	border: none;
+	outline: 0;
+  color: #fff;
+}
+
+.img {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	display: none;
+	border-radius: 50%;
+}
+
+.img-canvas {
+	background-color: black;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	display: none;
+}

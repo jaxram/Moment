@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home - MECT Workplace</title>
+    {% if s  ==  1 %}
+    <link rel="stylesheet" href="static/dark/css/home.css">
+    {% else %}
+    <link rel="stylesheet" href="static/css/home.css">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="wrapper">
+      <div class="main">
+        <h1 class="groups-heading">Groups</h1>
+        <div class="groups">
+          <div class="groups-main">
+            <div class="group group1">
+              <img src="static/group/MECT - General.png" class="group-img group-img1">
+              <button class="group-name group-name1">MECT - General</button>
+            </div>
+            <!-- <div class="group group2">
+              <img src="static/group/Sensors and IoT.png" class="group-img">
+              <button class="group-name group-name2">Sensors and IoT</button>
+            </div>
+            <div class="group group3">
+              <img src="static/group/Robotics.png" class="group-img">
+              <button class="group-name group-name3">Robotics</button>
+            </div>
+            <div class="group group4">
+              <img src="static/group/Control and Automation.png" class="group-img">
+              <button class="group-name group-name4">Control and A..</button>
+            </div>-->
+            <div class="group group5">
+              <img src="static/group/Tutor Ward.png" class="group-img">
+              <button class="group-name group-name5">Tutor Ward</button>
+            </div>
+            <!-- <div class="group group6">
+              <img src="static/group/Placement.png" class="group-img">
+              <button class="group-name group-name6">Placement</button>
+            </div> -->
+            <div class="group group7">
+              <img src="static/images/more.png" class="group7-img group-img">
+              <button class="group-name group-name7">More</button>
+            </div>
+          </div>
+        </div>
+        <div class="add-post">
+          <button class="post"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <div class="no-post">
+        <center><img class="no-post-img" src="static/images/traffic.png"></center>
+        <center><h1 class="no-post-text">No posts to display</h1></center>
+      </div>
+      <div class="post-main">
+        <h1 class="recent-heading">Recent</h1>
+        <div class="posts-append">
+        </div>
+
+
+      </div>
+      <div class="navigation">
+        <center><button class="home"><i class="fa fa-home" aria-hidden="true"></i></button>
+        <button class="notifications"><i class="fa fa-bell" aria-hidden="true"></i></button>
+        <button class="search"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <button class="settings"><i class="fa fa-cog" aria-hidden="true"></i></button></center>
+      </div>
+    </div>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/home.js"></script>
+   
+  </body>
+</html>

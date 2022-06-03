@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sign Up - MECT Workplace</title>
+		<link rel="stylesheet" href="static/css/signup.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/css/all.css">
+	</head>
+	<body>
+		{% csrf_token %}
+		<div class="wrapper">
+			<div class="top-bar">
+				<button class="signup-heading">Sign Up</button>
+				<input type="text" value="0" class="dial">
+			</div>
+
+			<center><h1 class="error"></h1></center>
+
+			<div class="main">
+				<center><input type="email" placeholder="E-Mail ID" name='email' class="mail" /></center>
+				<center><input type="password" placeholder="Password" class="password" name='password' /></center>
+				<center><input type="password" placeholder="Confirm Password" class="confirm-password" /></center>
+			</div>
+			<div class="bottom-bar">
+			<a><button class="next"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
+			</div>
+
+		</div>
+
+		<script src="static/js/jquery.js"></script>
+		<script src="static/js/knob.js"></script>
+		<script src="static/js/signup.js"></script>
+
+	</body>
+</html>
