@@ -687,6 +687,7 @@ def authenticate(request):#t5(Login verification function)
     tokens=[]
     token=[]
     stafftoken=[]
+    staffflag=0
     if(login=='1'):
         g=userid.objects.all().values()
         for i in g.values():
@@ -734,13 +735,17 @@ def authenticate(request):#t5(Login verification function)
                                 for d in name:
                                     name1=name1+d
                             stafftoken.append(fcm)
-
-                            if(topicsubscription(apikey,stafftoken,"tutor_"+str(id1)+"_"+str(name1))==1):#tutor_id_name
-                                print("tutor_",id1,name)
-                                now=datetime.datetime.now()
-                                t=now.strftime("%d/%m/%y %H:%M:%S")
-                                ftoken=fcmdata(userid=id1,fcmtoken=fcm,topics_subscribed="tutor_"+str(id1)+"_"+str(name1),time_sub=t)
-                                ftoken.save()
+                            fc=fcmdata.objects.filter(userid=id1).values()
+                            for d in fc.values():
+                                if(d["topics_subscribed"]!="MECT-General"):
+                                    staffflag=1
+                            if(staffflag==0):
+                                if(topicsubscription(apikey,stafftoken,"tutor_"+str(id1)+"_"+str(name1))==1):#tutor_id_name
+                                    print("tutor_",id1,name)
+                                    now=datetime.datetime.now()
+                                    t=now.strftime("%d/%m/%y %H:%M:%S")
+                                    ftoken=fcmdata(userid=id1,fcmtoken=fcm,topics_subscribed="tutor_"+str(id1)+"_"+str(name1),time_sub=t)
+                                    ftoken.save()
                         #print(res)
                         fdata.update({'Status':1})
                         #fdata.update({'token':res})
@@ -4093,7 +4098,7 @@ def logout(request):
             fdata=fcmdata.objects.filter(userid=userid_1).values()
             #print(fdata[0]['fcmtoken'])
             tokens.append(fdata[0]['fcmtoken'])
-            p#rint(tokens)
+            #print(tokens)
             for data in fdata.values():
                 print(data['topics_subscribed'],"................")
                 if(data['topics_subscribed']=='MECT-General'):
@@ -4103,6 +4108,7 @@ def logout(request):
                         print("Error in unsubscribption: ",data['topics_subscribed'])
 
                         return HttpResponse('0')
+
 
             if(tokencheck=='1'):
                 u1=userid.objects.filter(userid=userid_1).update(webtoken="NaN--:)")
